@@ -14,31 +14,37 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'),
   title: {
-    default: 'Brand — Modern Business Website',
-    template: '%s | Brand',
+    default: 'Marius \u2014 D\u00e9veloppeur web freelance \u00e0 Montpellier',
+    template: '%s | Marius Dev',
   },
   description:
-    'A blazing-fast, database-free business website built with Next.js and Tailwind CSS. Static export, auto-deployed to Infomaniak.',
-  keywords: ['Next.js', 'Tailwind CSS', 'Static Site', 'Business Website'],
-  authors: [{ name: 'Brand Team' }],
-  creator: 'Brand',
+    '\u00c9tudiant ing\u00e9nieur \u00e0 Polytech Montpellier, je cr\u00e9e des sites vitrines \u00e9co-responsables, performants et h\u00e9berg\u00e9s sur des serveurs verts Infomaniak.',
+  keywords: [
+    'd\u00e9veloppeur web freelance Montpellier',
+    'cr\u00e9ation site vitrine',
+    '\u00e9co-conception web',
+    'h\u00e9bergement \u00e9cologique',
+    'site web Montpellier',
+  ],
+  authors: [{ name: 'Marius' }],
+  creator: 'Marius',
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Brand — Modern Business Website',
+    title: 'Marius \u2014 D\u00e9veloppeur web freelance \u00e0 Montpellier',
     description:
-      'A blazing-fast, database-free business website built with Next.js and Tailwind CSS.',
+      'Sites vitrines sur-mesure, \u00e9co-responsables et h\u00e9berg\u00e9s sur des serveurs verts. \u00c9tudiant ing\u00e9nieur \u00e0 Polytech Montpellier.',
     url: '/',
-    siteName: 'Brand',
-    locale: 'en_US',
+    siteName: 'Marius Dev',
+    locale: 'fr_FR',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Brand — Modern Business Website',
+    title: 'Marius \u2014 D\u00e9veloppeur web freelance \u00e0 Montpellier',
     description:
-      'A blazing-fast, database-free business website built with Next.js and Tailwind CSS.',
+      'Sites vitrines sur-mesure, \u00e9co-responsables et h\u00e9berg\u00e9s sur des serveurs verts.',
   },
   robots: {
     index: true,
@@ -48,7 +54,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

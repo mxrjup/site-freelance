@@ -168,6 +168,38 @@ All pages created or modified in this project must adhere to strict static site 
 
 ---
 
+## Eco-conception — Priority #1
+
+This is an eco-responsible website. Performance and minimal environmental footprint are the **top priority** for every change.
+
+### Code Weight
+
+- **Zero unused JavaScript.** Every import must be justified. Remove dead code aggressively.
+- **Prefer Server Components.** Client components add JS to the bundle. Only use `'use client'` when strictly necessary.
+- **No heavy libraries.** Do not add dependencies for things achievable with vanilla JS or CSS. No animation libraries, no icon font libraries, no CSS-in-JS.
+- **Inline SVG icons only.** Do not use icon font packs (FontAwesome, Heroicons package, etc.). Copy the SVG markup directly.
+- **Minimal fonts.** Load at most 2 font families. Use `font-display: swap` (handled by `next/font`). No decorative fonts.
+
+### Images & Media
+
+- **No images unless explicitly requested.** Use CSS, SVG, or text instead.
+- **No autoplay videos.** No background videos. No GIFs.
+- **If an image is required:** use modern formats (WebP/AVIF), compress aggressively, specify `width` and `height` attributes, and use lazy loading.
+
+### Performance Targets
+
+- **Google PageSpeed:** Target 100 on both mobile and desktop.
+- **EcoIndex:** Target grade A (< 3 requests, < 200 KB transferred, minimal DOM nodes).
+- **Bundle size:** The total JS sent to the client should be as close to 0 KB as possible. Every kilobyte must be justified.
+- **DOM nodes:** Keep the DOM shallow and minimal. Avoid deeply nested wrapper `<div>` elements.
+
+### Hosting & Infrastructure
+
+- **Infomaniak hosting only.** All production deployments go to Infomaniak servers (100% renewable energy, European data centers).
+- **Static export.** The site is pre-rendered at build time (`output: 'export'`). No server runtime, no serverless functions, no API routes.
+
+---
+
 ## Done Criteria
 
 Before declaring any task complete, **always run:**

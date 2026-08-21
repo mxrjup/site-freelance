@@ -4,8 +4,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const navLinks = [
-  { label: 'Features', href: '#features' },
-  { label: 'About', href: '#about' },
+  { label: 'Avantages', href: '#avantages' },
+  { label: 'Engagement', href: '#engagement' },
+  { label: 'Offres', href: '#offres' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -13,14 +14,10 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-beige-dark">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="text-base font-semibold text-zinc-900 dark:text-white"
-          id="header-logo"
-        >
-          Brand
+        <Link href="/" className="text-base font-semibold text-foreground" id="header-logo">
+          Marius Dev
         </Link>
 
         {/* Desktop nav */}
@@ -29,7 +26,7 @@ export default function Header() {
             <li key={label}>
               <a
                 href={href}
-                className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-sapin dark:hover:text-sapin transition-colors"
                 id={`nav-${label.toLowerCase()}`}
               >
                 {label}
@@ -42,7 +39,7 @@ export default function Header() {
         <button
           className="md:hidden p-2 text-zinc-600 dark:text-zinc-400"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle navigation"
+          aria-label="Ouvrir le menu de navigation"
           id="mobile-menu-toggle"
         >
           <svg
@@ -63,13 +60,13 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <ul className="md:hidden border-t border-zinc-200 dark:border-zinc-800 px-6 py-4 space-y-3">
+        <ul className="md:hidden border-t border-beige-dark px-6 py-4 space-y-3 bg-background">
           {navLinks.map(({ label, href }) => (
             <li key={label}>
               <a
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className="block text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
+                className="block text-sm text-zinc-600 dark:text-zinc-400 hover:text-sapin dark:hover:text-sapin"
               >
                 {label}
               </a>
