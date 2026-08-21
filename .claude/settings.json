@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "out=$(npm run lint 2>&1); code=$?; if [ $code -ne 0 ]; then jq -n --arg r \"$out\" '{decision:\"block\", reason: (\"Lint failed — fix these errors before finishing (required by CLAUDE.md Done Criteria):\\n\\n\" + $r)}'; fi",
+            "timeout": 60,
+            "statusMessage": "Running npm run lint (Done Criteria check)..."
+          }
+        ]
+      }
+    ]
+  }
+}
