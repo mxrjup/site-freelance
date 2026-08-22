@@ -18,10 +18,10 @@ export const metadata = {
     template: '%s | Marius Dev',
   },
   description:
-    '\u00c9tudiant ing\u00e9nieur \u00e0 Polytech Montpellier, je cr\u00e9e des sites vitrines \u00e9co-responsables, performants et h\u00e9berg\u00e9s sur des serveurs verts Infomaniak.',
+    '\u00c9tudiant ing\u00e9nieur \u00e0 Polytech Montpellier, je cr\u00e9e des sites \u00e9co-responsables, performants et h\u00e9berg\u00e9s sur des serveurs verts Infomaniak.',
   keywords: [
     'd\u00e9veloppeur web freelance Montpellier',
-    'cr\u00e9ation site vitrine',
+    'cr\u00e9ation site web',
     '\u00e9co-conception web',
     'h\u00e9bergement \u00e9cologique',
     'site web Montpellier',
@@ -34,7 +34,7 @@ export const metadata = {
   openGraph: {
     title: 'Marius \u2014 D\u00e9veloppeur web freelance \u00e0 Montpellier',
     description:
-      'Sites vitrines sur-mesure, \u00e9co-responsables et h\u00e9berg\u00e9s sur des serveurs verts. \u00c9tudiant ing\u00e9nieur \u00e0 Polytech Montpellier.',
+      'Sites sur-mesure, \u00e9co-responsables et h\u00e9berg\u00e9s sur des serveurs verts. \u00c9tudiant ing\u00e9nieur \u00e0 Polytech Montpellier.',
     url: '/',
     siteName: 'Marius Dev',
     locale: 'fr_FR',
@@ -44,7 +44,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Marius \u2014 D\u00e9veloppeur web freelance \u00e0 Montpellier',
     description:
-      'Sites vitrines sur-mesure, \u00e9co-responsables et h\u00e9berg\u00e9s sur des serveurs verts.',
+      'Sites sur-mesure, \u00e9co-responsables et h\u00e9berg\u00e9s sur des serveurs verts.',
   },
   robots: {
     index: true,

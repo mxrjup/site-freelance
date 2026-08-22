@@ -1,12 +1,12 @@
 const offers = [
   {
-    title: 'Cr\u00e9ation de site vitrine',
+    title: 'Cr\u00e9ation de site',
     description:
       'Un site sur-mesure, con\u00e7u et cod\u00e9 pour repr\u00e9senter votre activit\u00e9 en ligne.',
     features: [
       'Design \u00e9pur\u00e9 et professionnel',
       'Responsive mobile-first',
-      'Optimisation SEO local (Montpellier)',
+      'Optimisation SEO local',
       'Performance et \u00e9co-conception',
     ],
     price: 'Prix sur devis',
@@ -15,10 +15,11 @@ const offers = [
   {
     title: 'Pack S\u00e9r\u00e9nit\u00e9',
     description:
-      "Un forfait annuel fixe pour ne plus vous soucier de la technique apr\u00e8s la mise en ligne.",
+      'Un forfait annuel fixe pour ne plus vous soucier de la technique apr\u00e8s la mise en ligne.',
     features: [
       'Nom de domaine inclus',
       'H\u00e9bergement vert Infomaniak',
+      'Certificat SSL (site s\u00e9curis\u00e9)',
       'Maintenance et mises \u00e0 jour',
       'Sauvegardes r\u00e9guli\u00e8res',
     ],
@@ -40,10 +41,15 @@ export default function Offers() {
           {offers.map(({ title, description, features, price, highlight }) => (
             <div
               key={title}
-              className={`rounded-lg border p-6 ${
-                highlight ? 'border-sapin' : 'border-beige-dark'
+              className={`rounded-lg border p-6 transition-colors ${
+                highlight
+                  ? 'border-sapin'
+                  : 'border-beige-dark hover:border-zinc-300 dark:hover:border-zinc-700'
               }`}
-              id={`offer-${title.toLowerCase().replace(/\s+/g, '-').replace(/['\u00e9\u00e0]/g, 'e')}`}
+              id={`offer-${title
+                .toLowerCase()
+                .replace(/\s+/g, '-')
+                .replace(/['\u00e9\u00e0]/g, 'e')}`}
             >
               {highlight && (
                 <p className="text-xs font-semibold text-sapin mb-3 uppercase tracking-wide">

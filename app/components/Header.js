@@ -7,7 +7,6 @@ const navLinks = [
   { label: 'Avantages', href: '#avantages' },
   { label: 'Engagement', href: '#engagement' },
   { label: 'Offres', href: '#offres' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Header() {
@@ -21,19 +20,28 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map(({ label, href }) => (
-            <li key={label}>
-              <a
-                href={href}
-                className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-sapin dark:hover:text-sapin transition-colors"
-                id={`nav-${label.toLowerCase()}`}
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {navLinks.map(({ label, href }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-sapin dark:hover:text-sapin transition-colors"
+                  id={`nav-${label.toLowerCase()}`}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            className="rounded-md bg-sapin px-4 py-2 text-sm font-medium text-white hover:bg-sapin-dark transition-colors"
+            id="nav-contact"
+          >
+            Contact
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -72,6 +80,15 @@ export default function Header() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              className="block text-sm font-medium text-sapin"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
       )}
     </header>

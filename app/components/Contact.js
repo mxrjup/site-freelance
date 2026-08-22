@@ -4,8 +4,8 @@ export default function Contact() {
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="text-2xl font-bold tracking-tight text-foreground">Contact</h2>
         <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl">
-          Vous avez un projet en t&ecirc;te&nbsp;? Parlons-en autour d&apos;un caf&eacute;
-          &agrave; Montpellier, ou simplement par message.
+          Vous avez un projet en t&ecirc;te&nbsp;? Parlons-en autour d&apos;un caf&eacute; &agrave;
+          Montpellier, ou simplement par message.
         </p>
 
         <div className="mt-10 max-w-md">
