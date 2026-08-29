@@ -12,8 +12,7 @@ export default function NotFound() {
         Page introuvable
       </h1>
       <p className="mt-4 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-        La page que vous recherchez n&apos;existe pas ou a &eacute;t&eacute;
-        d&eacute;plac&eacute;e.
+        La page que vous recherchez n&apos;existe pas ou a &eacute;t&eacute; d&eacute;plac&eacute;e.
       </p>
       <Link
         href="/"

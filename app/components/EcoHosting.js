@@ -1,18 +1,21 @@
 const commitments = [
   {
-    title: 'H\u00e9bergement 100\u00a0% vert',
+    title: 'Hébergement 100 % vert',
     description:
-      "Vos sites sont h\u00e9berg\u00e9s chez Infomaniak, aliment\u00e9s \u00e0 100\u00a0% par des \u00e9nergies renouvelables. Les donn\u00e9es restent en Europe, dans des datacenters certifi\u00e9s.",
+      'Vos sites sont hébergés chez Infomaniak, alimentés à 100 % par des énergies renouvelables. Les données restent en Europe, dans des datacenters certifiés.',
+    icon: 'M5 21c0-6 3-13 14-16-1 8-6 13-14 16z M5 21c2-3 5-6 9-9',
   },
   {
-    title: 'Code optimis\u00e9',
+    title: 'Code optimisé',
     description:
-      "Chaque page est con\u00e7ue pour \u00eatre la plus l\u00e9g\u00e8re possible : pas de scripts inutiles, pas d\u2019images surdimensionn\u00e9es, des performances maximales.",
+      'Chaque page est conçue pour être la plus légère possible : pas de scripts inutiles, pas d’images surdimensionnées, des performances maximales.',
+    icon: 'M13 3 4 14h6l-1 7 9-11h-6l1-7z',
   },
   {
-    title: 'Exp\u00e9rience terrain',
+    title: 'Expérience terrain',
     description:
-      "J\u2019ai r\u00e9alis\u00e9 un stage chez Infomaniak en 2026, au c\u0153ur de leur infrastructure \u00e9cologique. Je connais leurs outils et leurs bonnes pratiques de l\u2019int\u00e9rieur.",
+      'J’ai réalisé un stage de 4 mois en tant que développeur chez Infomaniak en 2026, au cœur de leur infrastructure écologique. Je connais leurs outils et leurs bonnes pratiques de l’intérieur.',
+    icon: 'M4 8.5A1.5 1.5 0 0 1 5.5 7h13A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5v-9z M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7 M4 12h16',
   },
 ];
 
@@ -30,13 +33,27 @@ export default function EcoHosting() {
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          {commitments.map(({ title, description }) => (
+          {commitments.map(({ title, description, icon }) => (
             <div
               key={title}
-              className="rounded-lg border border-beige-dark p-6"
-              id={`eco-${title.toLowerCase().replace(/\s+/g, '-').replace(/['\u2019%\u00a0]/g, '')}`}
+              className="rounded-lg border border-beige-dark p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors"
+              id={`eco-${title
+                .toLowerCase()
+                .replace(/\s+/g, '-')
+                .replace(/['’% ]/g, '')}`}
             >
-              <h3 className="text-sm font-semibold text-foreground">{title}</h3>
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-beige-dark dark:bg-zinc-800">
+                <svg
+                  className="h-5 w-5 text-sapin"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
+                </svg>
+              </div>
+              <h3 className="mt-4 text-sm font-semibold text-foreground">{title}</h3>
               <p className="mt-2 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                 {description}
               </p>
