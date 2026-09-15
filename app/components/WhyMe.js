@@ -1,25 +1,10 @@
 import Reveal from './Reveal';
 import { TailorIcon, PhoneIcon, SearchIcon } from './icons';
 
-const items = [
-  {
-    title: 'Un site fait pour vous',
-    body: "Pas de template recyclé. Votre site est construit à partir de votre métier, de vos clients et de ce que vous voulez qu'ils fassent en arrivant.",
-    Icon: TailorIcon,
-  },
-  {
-    title: 'Impeccable sur téléphone',
-    body: "Votre site est responsive : il s'adapte à chaque écran. Aujourd'hui plus de la moitié du trafic web provient du mobile, il est donc important d'avoir un site adapté.",
-    Icon: PhoneIcon,
-  },
-  {
-    title: 'Trouvable sur Google',
-    body: 'Le référencement local, le SEO, est intégré dès le premier jour : quand on cherche votre activité à Montpellier, vous apparaissez.',
-    Icon: SearchIcon,
-  },
-];
+const ICONS = [TailorIcon, PhoneIcon, SearchIcon];
 
-export default function WhyMe() {
+export default function WhyMe({ t }) {
+  const items = t.items.map((item, i) => ({ ...item, Icon: ICONS[i] }));
   return (
     <section
       id="atouts"
@@ -28,17 +13,16 @@ export default function WhyMe() {
       <div aria-hidden="true" className="hidden lg:block" />
       <div className="pt-12 lg:pt-16">
         <Reveal as="p" className="text-[13px] font-bold uppercase tracking-[0.08em] text-clay">
-          Pourquoi Moi
+          {t.eyebrow}
         </Reveal>
         <Reveal delay={40}>
           <h2 className="mt-3.5 max-w-[640px] text-pretty text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px]">
-            Pourquoi me confier votre site
+            {t.h2}
           </h2>
         </Reveal>
         <Reveal delay={80}>
           <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/75">
-            La rigueur d&apos;une formation d&apos;ingénieur, la disponibilité d&apos;un indépendant
-            et un interlocuteur unique du début à la fin.
+            {t.paragraph}
           </p>
         </Reveal>
 

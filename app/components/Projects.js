@@ -4,7 +4,9 @@ import Parallax from './Parallax';
 import { CompassIcon, UtensilsIcon, ExternalLinkIcon } from './icons';
 import projectShot from '../../public/images/project-mxrjup.webp';
 
-export default function Projects() {
+export default function Projects({ t }) {
+  const [viaOrientation, hakko, mxrjup] = t.items;
+
   return (
     <section
       id="realisations"
@@ -13,17 +15,15 @@ export default function Projects() {
       <div aria-hidden="true" className="hidden lg:block" />
       <div className="pt-12 sm:pt-16">
         <Reveal as="p" className="text-[13px] font-bold uppercase tracking-[0.08em] text-clay">
-          Réalisations
+          {t.eyebrow}
         </Reveal>
         <Reveal delay={40}>
           <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px]">
-            Trois sites, trois besoins
+            {t.h2}
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-4 max-w-[600px] text-lg leading-relaxed text-forest/75">
-            Trois sites en ligne, chacun parti d&apos;un besoin précis. Rien de recyclé.
-          </p>
+          <p className="mt-4 max-w-[600px] text-lg leading-relaxed text-forest/75">{t.paragraph}</p>
         </Reveal>
 
         <div className="mt-9 flex flex-col gap-10 sm:mt-12 sm:gap-14">
@@ -40,12 +40,11 @@ export default function Projects() {
             </Parallax>
             <div>
               <span className="inline-block rounded-full bg-white/75 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-clay">
-                Conseil indépendant
+                {viaOrientation.tag}
               </span>
-              <h3 className="mt-4 text-[26px] leading-tight text-forest">Via Orientation</h3>
+              <h3 className="mt-4 text-[26px] leading-tight text-forest">{viaOrientation.title}</h3>
               <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75">
-                Site d&apos;une conseillère d&apos;orientation indépendante&nbsp;: son
-                accompagnement présenté clairement, et une prise de contact qui va droit au but.
+                {viaOrientation.body}
               </p>
             </div>
           </Reveal>
@@ -63,12 +62,11 @@ export default function Projects() {
             </Parallax>
             <div className="sm:order-1">
               <span className="inline-block rounded-full bg-white/75 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-clay">
-                Restaurant
+                {hakko.tag}
               </span>
-              <h3 className="mt-4 text-[26px] leading-tight text-forest">Hakko</h3>
+              <h3 className="mt-4 text-[26px] leading-tight text-forest">{hakko.title}</h3>
               <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75">
-                Site d&apos;un restaurant végétarien à Montpellier&nbsp;: la carte, les horaires et
-                l&apos;adresse trouvés en deux secondes depuis un téléphone.
+                {hakko.body}
               </p>
             </div>
           </Reveal>
@@ -84,7 +82,7 @@ export default function Projects() {
             >
               <Image
                 src={projectShot}
-                alt="Aperçu du site personnel Mxrjup"
+                alt={mxrjup.imageAlt}
                 fill
                 className="object-cover object-left-top saturate-[0.72] contrast-[0.94]"
                 sizes="(min-width: 640px) 480px, 90vw"
@@ -92,12 +90,11 @@ export default function Projects() {
             </Parallax>
             <div>
               <span className="inline-block rounded-full bg-teal/25 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-forest">
-                Laboratoire
+                {mxrjup.tag}
               </span>
-              <h3 className="mt-4 text-[26px] leading-tight text-forest">Mxrjup</h3>
+              <h3 className="mt-4 text-[26px] leading-tight text-forest">{mxrjup.title}</h3>
               <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75">
-                Mon site personnel, volontairement expérimental&nbsp;: le terrain où je teste des
-                idées avant d&apos;en garder les meilleures pour mes clients.
+                {mxrjup.body}
               </p>
               <a
                 href="https://mxrjup.fun"
@@ -105,7 +102,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="mt-3.5 inline-flex items-center gap-2 text-[15.5px] font-semibold text-clay transition-colors hover:text-forest"
               >
-                mxrjup.fun
+                {mxrjup.linkLabel}
                 <ExternalLinkIcon className="h-4 w-4" />
               </a>
             </div>

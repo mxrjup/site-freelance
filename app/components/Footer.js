@@ -1,6 +1,9 @@
 import { LeafIcon } from './icons';
 
-export default function Footer() {
+const SITE_HREFS = ['#atouts', '#realisations', '#offres'];
+const CONTACT_HREFS = ['#contact', '#questions'];
+
+export default function Footer({ t }) {
   const year = new Date().getFullYear();
 
   return (
@@ -12,62 +15,55 @@ export default function Footer() {
               <span className="inline-flex h-[29px] w-[29px] items-center justify-center rounded-[60%_40%_55%_45%/50%_55%_45%_50%] bg-sage">
                 <LeafIcon className="h-4 w-4 text-forest" />
               </span>
-              Marius Dev
+              {t.brand}
             </p>
-            <p className="mt-2.5 text-[14.5px] leading-relaxed text-white/70">
-              Création de sites web éco-responsables à Montpellier et alentours.
-            </p>
+            <p className="mt-2.5 text-[14.5px] leading-relaxed text-white/70">{t.tagline}</p>
           </div>
           <div className="flex gap-12">
             <div>
               <p className="mb-2.5 text-[12.5px] font-bold uppercase tracking-wide text-sage">
-                Le site
+                {t.siteColumnTitle}
               </p>
               <ul className="flex flex-col gap-1.5">
-                <li>
-                  <a href="#atouts" className="text-[15px] text-white/[0.82] hover:text-sage">
-                    Pourquoi moi
-                  </a>
-                </li>
-                <li>
-                  <a href="#realisations" className="text-[15px] text-white/[0.82] hover:text-sage">
-                    Réalisations
-                  </a>
-                </li>
-                <li>
-                  <a href="#offres" className="text-[15px] text-white/[0.82] hover:text-sage">
-                    Offres
-                  </a>
-                </li>
+                {t.siteLinks.map((label, i) => (
+                  <li key={label}>
+                    <a
+                      href={SITE_HREFS[i]}
+                      className="text-[15px] text-white/[0.82] hover:text-sage"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
               <p className="mb-2.5 text-[12.5px] font-bold uppercase tracking-wide text-sage">
-                Contact
+                {t.contactColumnTitle}
               </p>
               <ul className="flex flex-col gap-1.5">
+                {t.contactLinks.map((label, i) => (
+                  <li key={label}>
+                    <a
+                      href={CONTACT_HREFS[i]}
+                      className="text-[15px] text-white/[0.82] hover:text-sage"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
                 <li>
-                  <a href="#contact" className="text-[15px] text-white/[0.82] hover:text-sage">
-                    Formulaire
-                  </a>
-                </li>
-                <li>
-                  <a href="#questions" className="text-[15px] text-white/[0.82] hover:text-sage">
-                    Questions fréquentes
-                  </a>
-                </li>
-                <li>
-                  <span className="text-[15px] text-white/60">Montpellier, France</span>
+                  <span className="text-[15px] text-white/60">{t.location}</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3.5 border-t border-sage/25 pt-4">
-          <p className="text-[13.5px] text-white/60">Marius Dev — {year}</p>
           <p className="text-[13.5px] text-white/60">
-            Hébergé sur des serveurs alimentés en énergie renouvelable.
+            {t.brand} — {year}
           </p>
+          <p className="text-[13.5px] text-white/60">{t.bottomRight}</p>
         </div>
       </div>
     </footer>

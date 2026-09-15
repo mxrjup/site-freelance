@@ -4,27 +4,9 @@ import { useState } from 'react';
 import Reveal from './Reveal';
 import { ArrowRightIcon } from './icons';
 
-const items = [
-  {
-    q: 'Je peux modifier mon site moi-même ?',
-    a: "Oui, si vous le souhaitez. Je peux mettre en place un espace simple pour changer vos textes, vos photos ou vos horaires, sans toucher à quoi que ce soit de technique. Et si vous préférez ne pas y penser, je m'en occupe pour vous jusqu'à 3 fois après la mise en ligne.",
-  },
-  {
-    q: 'Combien de temps faut-il pour avoir mon site ?',
-    a: "Comptez deux à quatre semaines pour un site vitrine, à partir du moment où j'ai vos textes et vos photos. On fixe la date ensemble dès le premier échange, et je vous présente le site une fois qu'il est prêt à être relu.",
-  },
-  {
-    q: "Pouvez-vous reprendre un site que j'ai déjà ?",
-    a: "Oui. On regarde ensemble ce qui existe : parfois quelques corrections suffisent, parfois il vaut mieux repartir d'une base propre.",
-  },
-  {
-    q: 'Que se passe-t-il après la mise en ligne ?',
-    a: "Je reste joignable. Le Pack Sérénité couvre le nom de domaine, l'hébergement vert, le certificat de sécurité, les sauvegardes et les mises à jour : il n'y a rien à surveiller de votre côté.",
-  },
-];
-
-export default function Faq() {
+export default function Faq({ t }) {
   const [open, setOpen] = useState(0);
+  const items = t.items;
   const active = items[open];
 
   return (
@@ -35,16 +17,16 @@ export default function Faq() {
       <div aria-hidden="true" className="hidden lg:block" />
       <div className="pt-12 sm:pt-16">
         <Reveal as="p" className="text-[13px] font-bold uppercase tracking-[0.08em] text-clay">
-          Questions
+          {t.eyebrow}
         </Reveal>
         <Reveal delay={40}>
           <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px]">
-            Les questions qu&apos;on me pose
+            {t.h2}
           </h2>
         </Reveal>
         <Reveal delay={80}>
           <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/75">
-            Sans jargon. Si la vôtre n&apos;y est pas, elle a sa place dans le formulaire plus bas.
+            {t.paragraph}
           </p>
         </Reveal>
 
@@ -68,14 +50,12 @@ export default function Faq() {
               </button>
             ))}
             <div className="mt-3.5 flex flex-wrap items-center gap-3.5 px-1.5">
-              <p className="text-base text-forest/70">
-                Votre question n&apos;est pas dans la liste&nbsp;?
-              </p>
+              <p className="text-base text-forest/70">{t.noQuestion}</p>
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-leaf px-5 py-3 text-[15.5px] font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-forest"
               >
-                Posez-la ici
+                {t.ctaLabel}
                 <ArrowRightIcon className="h-4 w-4" />
               </a>
             </div>

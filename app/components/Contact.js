@@ -1,13 +1,12 @@
 import Reveal from './Reveal';
 import { ClockIcon, PinIcon, ChatIcon } from './icons';
 
-const facts = [
-  { label: 'Réponse sous 24 h', Icon: ClockIcon },
-  { label: 'Montpellier et alentours', Icon: PinIcon },
-  { label: 'Premier échange gratuit, sans engagement', Icon: ChatIcon },
-];
+const ICONS = [ClockIcon, PinIcon, ChatIcon];
 
-export default function Contact() {
+export default function Contact({ t }) {
+  const facts = t.facts.map((label, i) => ({ label, Icon: ICONS[i] }));
+  const f = t.form;
+
   return (
     <section
       id="contact"
@@ -18,17 +17,16 @@ export default function Contact() {
         <div className="grid items-start gap-8 sm:grid-cols-2 sm:gap-12">
           <div>
             <Reveal as="p" className="text-[13px] font-bold uppercase tracking-[0.08em] text-clay">
-              Contact
+              {t.eyebrow}
             </Reveal>
             <Reveal delay={40}>
               <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px]">
-                Parlons de votre projet
+                {t.h2}
               </h2>
             </Reveal>
             <Reveal delay={80}>
               <p className="mt-4 text-pretty text-lg leading-relaxed text-forest/[0.76]">
-                Décrivez votre activité en quelques lignes. Je vous réponds sous 24 h avec une
-                première idée de ce qu&apos;on pourrait faire, sans engagement.
+                {t.paragraph}
               </p>
             </Reveal>
             <Reveal as="ul" variant="grow" delay={140} className="mt-7 flex flex-col gap-4">
@@ -54,13 +52,13 @@ export default function Contact() {
                 htmlFor="contact-nom"
                 className="mb-1.5 block text-sm font-semibold text-forest"
               >
-                Nom
+                {f.nameLabel}
               </label>
               <input
                 id="contact-nom"
                 name="nom"
                 type="text"
-                placeholder="Votre nom"
+                placeholder={f.namePlaceholder}
                 className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf"
               />
             </div>
@@ -69,13 +67,13 @@ export default function Contact() {
                 htmlFor="contact-tel"
                 className="mb-1.5 block text-sm font-semibold text-forest"
               >
-                Téléphone
+                {f.phoneLabel}
               </label>
               <input
                 id="contact-tel"
                 name="telephone"
                 type="tel"
-                placeholder="06 00 00 00 00"
+                placeholder={f.phonePlaceholder}
                 className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf"
               />
             </div>
@@ -84,13 +82,13 @@ export default function Contact() {
                 htmlFor="contact-email"
                 className="mb-1.5 block text-sm font-semibold text-forest"
               >
-                Email
+                {f.emailLabel}
               </label>
               <input
                 id="contact-email"
                 name="email"
                 type="email"
-                placeholder="vous@exemple.com"
+                placeholder={f.emailPlaceholder}
                 required
                 className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf"
               />
@@ -100,19 +98,16 @@ export default function Contact() {
                 htmlFor="contact-activite"
                 className="mb-1.5 block text-sm font-semibold text-forest"
               >
-                Type d&apos;activité
+                {f.activityLabel}
               </label>
               <select
                 id="contact-activite"
                 name="activite"
                 className="w-full appearance-none rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf"
               >
-                <option>Commerce ou boutique</option>
-                <option>Restaurant, café, bar</option>
-                <option>Artisan</option>
-                <option>Profession libérale</option>
-                <option>Association</option>
-                <option>Autre</option>
+                {f.activityOptions.map((option) => (
+                  <option key={option}>{option}</option>
+                ))}
               </select>
             </div>
             <div className="col-span-2">
@@ -120,13 +115,13 @@ export default function Contact() {
                 htmlFor="contact-projet"
                 className="mb-1.5 block text-sm font-semibold text-forest"
               >
-                Votre projet en quelques lignes
+                {f.projectLabel}
               </label>
               <textarea
                 id="contact-projet"
                 name="projet"
                 rows={5}
-                placeholder="Ce que vous faites, ce que le site devrait apporter, et si vous avez une date en tête."
+                placeholder={f.projectPlaceholder}
                 className="w-full resize-y rounded-3xl border-[1.5px] border-forest/[0.18] bg-white px-5 py-4 text-base leading-relaxed text-forest outline-none transition-colors focus:border-leaf"
               />
             </div>
@@ -136,11 +131,9 @@ export default function Contact() {
                 id="contact-submit"
                 className="rounded-full bg-leaf px-8 py-4 text-base font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-forest"
               >
-                Envoyer ma demande
+                {f.submit}
               </button>
-              <span className="text-sm text-forest/60">
-                Vos informations ne servent qu&apos;à vous répondre.
-              </span>
+              <span className="text-sm text-forest/60">{f.privacyNote}</span>
             </div>
           </Reveal>
         </div>

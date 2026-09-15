@@ -3,9 +3,7 @@ import Reveal from './Reveal';
 import { PinIcon, CheckIcon } from './icons';
 import portrait from '../../public/images/portrait-marius.webp';
 
-const checklist = ['Réponse sous 24 h', 'Hébergement vert', 'Premier échange gratuit'];
-
-export default function Hero() {
+export default function Hero({ t }) {
   return (
     <section
       id="hero"
@@ -16,21 +14,19 @@ export default function Hero() {
           <Reveal variant="drop">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/70 py-2 pl-3 pr-4 text-[13px] font-semibold tracking-wide text-forest uppercase">
               <PinIcon className="h-[15px] w-[15px] text-clay" />
-              Développeur web à Montpellier
+              {t.badge}
             </span>
           </Reveal>
 
           <Reveal variant="rise" delay={60}>
             <h1 className="mt-5 text-balance text-[38px] leading-[1.05] tracking-tight text-forest sm:text-[48px] lg:text-[62px]">
-              Un site clair, rapide et respectueux de la planète.
+              {t.h1}
             </h1>
           </Reveal>
 
           <Reveal variant="rise" delay={120}>
             <p className="mt-6 max-w-[540px] text-pretty text-lg leading-relaxed text-forest/80 sm:text-xl">
-              Je crée le site de votre activité de A à Z&nbsp;: simple pour vos clients, visible sur
-              Google, hébergé sur des serveurs alimentés en énergie renouvelable. Vous n&apos;avez
-              rien de technique à gérer.
+              {t.paragraph}
             </p>
           </Reveal>
 
@@ -41,21 +37,21 @@ export default function Hero() {
                 id="hero-cta-primary"
                 className="rounded-full bg-leaf px-[30px] py-4 text-[16px] font-semibold text-white shadow-[0_12px_26px_-16px_rgba(61,90,36,0.6)] transition-[background-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-forest hover:shadow-[0_18px_32px_-18px_rgba(61,90,36,0.7)]"
               >
-                Parlons de votre projet
+                {t.ctaPrimary}
               </a>
               <a
                 href="#offres"
                 id="hero-cta-secondary"
                 className="rounded-full bg-white/60 px-[26px] py-[15px] text-[16px] font-semibold text-forest transition-colors hover:bg-sage/55"
               >
-                Voir les offres et les prix
+                {t.ctaSecondary}
               </a>
             </div>
           </Reveal>
 
           <Reveal variant="grow" delay={220}>
             <ul className="mt-9 flex flex-wrap gap-6">
-              {checklist.map((item) => (
+              {t.checklist.map((item) => (
                 <li
                   key={item}
                   className="flex items-center gap-2 text-[15px] font-medium text-forest/80"
@@ -73,7 +69,7 @@ export default function Hero() {
           <div className="relative h-[290px] w-[290px] animate-blob-morph overflow-hidden rounded-[58%_42%_52%_48%/46%_56%_44%_54%] bg-[radial-gradient(120%_100%_at_50%_12%,#DDE9C6_0%,#B7D99A_52%,#A3C6A0_100%)] sm:h-[340px] sm:w-[340px]">
             <Image
               src={portrait}
-              alt="Portrait de Marius, développeur web freelance à Montpellier"
+              alt={t.portraitAlt}
               fill
               className="object-cover saturate-[0.9]"
               sizes="340px"
@@ -85,9 +81,9 @@ export default function Hero() {
               <GraduationCapIcon className="h-4 w-4" />
             </span>
             <span className="text-sm font-semibold text-forest">
-              Étudiant ingénieur
+              {t.studentLine1}
               <br />
-              <span className="font-medium text-forest/65">Polytech Montpellier</span>
+              <span className="font-medium text-forest/65">{t.studentLine2}</span>
             </span>
           </div>
         </Reveal>

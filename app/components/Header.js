@@ -1,18 +1,20 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
-const navLinks = [
-  { label: 'Pourquoi moi', href: '#atouts' },
-  { label: 'Engagement', href: '#engagement' },
-  { label: 'Réalisations', href: '#realisations' },
-  { label: 'Offres', href: '#offres' },
-  { label: 'Questions', href: '#questions' },
+const NAV_ITEMS = [
+  { key: 'why', href: '#atouts' },
+  { key: 'engagement', href: '#engagement' },
+  { key: 'projects', href: '#realisations' },
+  { key: 'pricing', href: '#offres' },
+  { key: 'faq', href: '#questions' },
 ];
 
-export default function Header() {
+export default function Header({ lang = 'fr', t }) {
   const headerRef = useRef(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navLinks = NAV_ITEMS.map((item, i) => ({ ...item, label: t.nav[i] }));
 
   useEffect(() => {
     const header = headerRef.current;
@@ -53,11 +55,11 @@ export default function Header() {
 
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex items-center gap-7">
-            {navLinks.map(({ label, href }) => (
-              <li key={label}>
+            {navLinks.map(({ key, label, href }) => (
+              <li key={key}>
                 <a
                   href={href}
-                  id={`nav-${label.toLowerCase().replace(/[^a-z]+/g, '-')}`}
+                  id={`nav-${key}`}
                   className="text-[15px] font-medium text-forest/70 transition-colors hover:text-leaf"
                 >
                   {label}
@@ -70,8 +72,9 @@ export default function Header() {
             id="header-cta"
             className="rounded-full bg-leaf px-[22px] py-[11px] text-[15px] font-semibold text-white transition-[background-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-forest hover:shadow-[0_18px_32px_-18px_rgba(61,90,36,0.7)]"
           >
-            Me contacter
+            {t.cta}
           </a>
+          <LangSwitch lang={lang} label={t.langGroupLabel} />
         </div>
 
         <button
@@ -79,7 +82,7 @@ export default function Header() {
           id="mobile-menu-toggle"
           className="md:hidden p-2 text-forest"
           onClick={() => setMobileOpen((v) => !v)}
-          aria-label={mobileOpen ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation'}
+          aria-label={mobileOpen ? t.closeMenu : t.openMenu}
           aria-expanded={mobileOpen}
         >
           <svg
@@ -100,8 +103,8 @@ export default function Header() {
 
       {mobileOpen && (
         <ul className="md:hidden flex flex-col gap-1 border-t border-forest/10 bg-cream-header px-5 py-4">
-          {navLinks.map(({ label, href }) => (
-            <li key={label}>
+          {navLinks.map(({ key, label, href }) => (
+            <li key={key}>
               <a
                 href={href}
                 onClick={() => setMobileOpen(false)}
@@ -111,18 +114,50 @@ export default function Header() {
               </a>
             </li>
           ))}
-          <li className="pt-2">
+          <li className="flex flex-wrap items-center gap-3.5 pt-2">
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
               className="inline-block rounded-full bg-leaf px-5 py-2.5 text-[15px] font-semibold text-white"
             >
-              Me contacter
+              {t.cta}
             </a>
+            <LangSwitch lang={lang} label={t.langGroupLabel} />
           </li>
         </ul>
       )}
     </header>
+  );
+}
+
+function LangSwitch({ lang, label }) {
+  return (
+    <div
+      role="group"
+      aria-label={label}
+      className="flex items-center gap-0.5 rounded-full border border-forest/15 p-0.5"
+    >
+      <Link
+        href="/"
+        id="lang-switch-fr"
+        aria-current={lang === 'fr' ? 'true' : undefined}
+        className={`rounded-full px-2.5 py-1 text-[13px] font-semibold transition-colors ${
+          lang === 'fr' ? 'bg-sage text-forest' : 'text-forest/55 hover:text-forest'
+        }`}
+      >
+        FR
+      </Link>
+      <Link
+        href="/en"
+        id="lang-switch-en"
+        aria-current={lang === 'en' ? 'true' : undefined}
+        className={`rounded-full px-2.5 py-1 text-[13px] font-semibold transition-colors ${
+          lang === 'en' ? 'bg-sage text-forest' : 'text-forest/55 hover:text-forest'
+        }`}
+      >
+        EN
+      </Link>
+    </div>
   );
 }
 

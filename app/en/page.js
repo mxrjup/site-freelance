@@ -1,18 +1,18 @@
-import BackgroundDecor from './components/BackgroundDecor';
-import HtmlLang from './components/HtmlLang';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ScrollProgressRail from './components/ScrollProgressRail';
-import WhyMe from './components/WhyMe';
-import Engagement from './components/Engagement';
-import Projects from './components/Projects';
-import Pricing from './components/Pricing';
-import Faq from './components/Faq';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import { dict } from './lib/i18n';
+import BackgroundDecor from '../components/BackgroundDecor';
+import HtmlLang from '../components/HtmlLang';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import ScrollProgressRail from '../components/ScrollProgressRail';
+import WhyMe from '../components/WhyMe';
+import Engagement from '../components/Engagement';
+import Projects from '../components/Projects';
+import Pricing from '../components/Pricing';
+import Faq from '../components/Faq';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
+import { dict } from '../lib/i18n';
 
-const lang = 'fr';
+const lang = 'en';
 const t = dict[lang];
 
 export const metadata = {
@@ -20,13 +20,13 @@ export const metadata = {
   description: t.meta.description,
   keywords: t.meta.keywords,
   alternates: {
-    canonical: '/',
+    canonical: '/en/',
     languages: { fr: '/', en: '/en/', 'x-default': '/' },
   },
   openGraph: {
     title: t.meta.title,
     description: t.meta.ogDescription,
-    url: '/',
+    url: '/en/',
     siteName: 'Marius Dev',
     locale: t.meta.locale,
     type: 'website',
@@ -38,7 +38,7 @@ export const metadata = {
   },
 };
 
-export default function Home() {
+export default function HomeEn() {
   return (
     <div className="relative flex min-h-full flex-col">
       <HtmlLang lang={lang} />
