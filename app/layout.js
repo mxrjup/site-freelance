@@ -1,4 +1,6 @@
 import { Figtree, Caprasimo } from 'next/font/google';
+import Header from './components/Header';
+import HtmlLang from './components/HtmlLang';
 import './globals.css';
 
 const figtree = Figtree({
@@ -35,6 +37,8 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col font-sans">
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <HtmlLang />
+        <Header />
         {children}
       </body>
     </html>

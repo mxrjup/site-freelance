@@ -1,15 +1,10 @@
+import { headerText } from './headerText';
+
 export const languages = ['fr', 'en'];
 
 export const dict = {
   fr: {
-    header: {
-      nav: ['Pourquoi moi', 'Engagement', 'Réalisations', 'Offres', 'Questions'],
-      cta: 'Me contacter',
-      openMenu: 'Ouvrir le menu de navigation',
-      closeMenu: 'Fermer le menu de navigation',
-      langGroupLabel: 'Choix de la langue',
-      themeToggleLabel: 'Basculer le mode sombre',
-    },
+    header: headerText.fr,
     hero: {
       badge: 'Développeur web à Montpellier',
       h1: 'Un site clair, rapide et respectueux de la planète.',
@@ -215,14 +210,7 @@ export const dict = {
     },
   },
   en: {
-    header: {
-      nav: ['Why me', 'Commitment', 'Projects', 'Pricing', 'FAQ'],
-      cta: 'Get in touch',
-      openMenu: 'Open navigation menu',
-      closeMenu: 'Close navigation menu',
-      langGroupLabel: 'Language selection',
-      themeToggleLabel: 'Toggle dark mode',
-    },
+    header: headerText.en,
     hero: {
       badge: 'Web developer in Montpellier',
       h1: 'A clear, fast website that respects the planet.',

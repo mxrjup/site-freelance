@@ -1,6 +1,4 @@
 import BackgroundDecor from '../components/BackgroundDecor';
-import HtmlLang from '../components/HtmlLang';
-import Header from '../components/Header';
 import Hero from '../components/Hero';
 import ScrollProgressRail from '../components/ScrollProgressRail';
 import WhyMe from '../components/WhyMe';
@@ -40,10 +38,8 @@ export const metadata = {
 
 export default function HomeEn() {
   return (
-    <div className="relative flex min-h-full flex-col">
-      <HtmlLang lang={lang} />
+    <div className="relative flex flex-1 flex-col">
       <BackgroundDecor />
-      <Header lang={lang} t={t.header} />
       <main className="relative flex-1">
         <Hero t={t.hero} />
         <div className="relative">

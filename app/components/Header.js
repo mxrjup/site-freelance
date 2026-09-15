@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
+import { headerText } from '../lib/headerText';
+import { useLang } from '../lib/useLang';
 
 const HEADER_BG_LIGHT = '233,223,199';
 const HEADER_BG_DARK = '27,36,21';
@@ -17,7 +19,9 @@ const NAV_ITEMS = [
   { key: 'faq', href: '#questions' },
 ];
 
-export default function Header({ lang = 'fr', t }) {
+export default function Header() {
+  const lang = useLang();
+  const t = headerText[lang];
   const headerRef = useRef(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const navLinks = NAV_ITEMS.map((item, i) => ({ ...item, label: t.nav[i] }));
@@ -150,15 +154,21 @@ function LangSwitch({ lang, label }) {
     <div
       role="group"
       aria-label={label}
-      className="flex items-center gap-0.5 rounded-full border border-forest/15 p-0.5 dark:border-cream/20"
+      className="relative flex items-center rounded-full border border-forest/15 p-0.5 dark:border-cream/20"
     >
+      <span
+        aria-hidden="true"
+        className={`absolute left-0.5 top-0.5 h-7 w-9 rounded-full bg-sage transition-transform duration-300 ease-out ${
+          lang === 'en' ? 'translate-x-9' : 'translate-x-0'
+        }`}
+      />
       <Link
         href="/"
         id="lang-switch-fr"
         aria-current={lang === 'fr' ? 'true' : undefined}
-        className={`rounded-full px-2.5 py-1 text-[13px] font-semibold transition-colors ${
+        className={`relative z-10 flex h-7 w-9 items-center justify-center rounded-full text-[13px] font-semibold transition-colors duration-200 ${
           lang === 'fr'
-            ? 'bg-sage text-forest'
+            ? 'text-forest'
             : 'text-forest/55 hover:text-forest dark:text-cream/55 dark:hover:text-cream'
         }`}
       >
@@ -168,9 +178,9 @@ function LangSwitch({ lang, label }) {
         href="/en"
         id="lang-switch-en"
         aria-current={lang === 'en' ? 'true' : undefined}
-        className={`rounded-full px-2.5 py-1 text-[13px] font-semibold transition-colors ${
+        className={`relative z-10 flex h-7 w-9 items-center justify-center rounded-full text-[13px] font-semibold transition-colors duration-200 ${
           lang === 'en'
-            ? 'bg-sage text-forest'
+            ? 'text-forest'
             : 'text-forest/55 hover:text-forest dark:text-cream/55 dark:hover:text-cream'
         }`}
       >
