@@ -1,29 +1,32 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Figtree, Caprasimo } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const figtree = Figtree({
+  variable: '--font-figtree',
   subsets: ['latin'],
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const caprasimo = Caprasimo({
+  variable: '--font-caprasimo',
   subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
 });
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'),
   title: {
-    default: 'Marius \u2014 D\u00e9veloppeur web freelance \u00e0 Montpellier',
+    default: 'Marius — Développeur web freelance à Montpellier',
     template: '%s | Marius Dev',
   },
   description:
-    '\u00c9tudiant ing\u00e9nieur \u00e0 Polytech Montpellier, je cr\u00e9e des sites vitrines \u00e9co-responsables, performants et h\u00e9berg\u00e9s sur des serveurs verts Infomaniak.',
+    'Étudiant ingénieur à Polytech Montpellier, je crée des sites vitrines éco-responsables, performants et hébergés sur des serveurs verts Infomaniak.',
   keywords: [
-    'd\u00e9veloppeur web freelance Montpellier',
-    'cr\u00e9ation site vitrine',
-    '\u00e9co-conception web',
-    'h\u00e9bergement \u00e9cologique',
+    'développeur web freelance Montpellier',
+    'création site vitrine',
+    'éco-conception web',
+    'hébergement écologique',
     'site web Montpellier',
   ],
   authors: [{ name: 'Marius' }],
@@ -32,9 +35,9 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Marius \u2014 D\u00e9veloppeur web freelance \u00e0 Montpellier',
+    title: 'Marius — Développeur web freelance à Montpellier',
     description:
-      'Sites vitrines sur-mesure, \u00e9co-responsables et h\u00e9berg\u00e9s sur des serveurs verts. \u00c9tudiant ing\u00e9nieur \u00e0 Polytech Montpellier.',
+      'Sites vitrines sur-mesure, éco-responsables et hébergés sur des serveurs verts. Étudiant ingénieur à Polytech Montpellier.',
     url: '/',
     siteName: 'Marius Dev',
     locale: 'fr_FR',
@@ -42,9 +45,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Marius \u2014 D\u00e9veloppeur web freelance \u00e0 Montpellier',
-    description:
-      'Sites vitrines sur-mesure, \u00e9co-responsables et h\u00e9berg\u00e9s sur des serveurs verts.',
+    title: 'Marius — Développeur web freelance à Montpellier',
+    description: 'Sites vitrines sur-mesure, éco-responsables et hébergés sur des serveurs verts.',
   },
   robots: {
     index: true,
@@ -54,8 +56,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="fr" className={`${figtree.variable} ${caprasimo.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-cream text-forest font-sans">{children}</body>
     </html>
   );
 }

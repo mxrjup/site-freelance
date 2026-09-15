@@ -1,25 +1,115 @@
+import Image from 'next/image';
+import Reveal from './Reveal';
+import { PinIcon, CheckIcon } from './icons';
+import portrait from '../../public/images/portrait-marius.webp';
+
+const checklist = ['Réponse sous 24 h', 'Hébergement vert', 'Premier échange gratuit'];
+
 export default function Hero() {
   return (
-    <section id="hero" className="pt-32 pb-20 sm:pt-40 sm:pb-28">
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Cr&eacute;ation de sites web &eacute;co-responsables &agrave; Montpellier
-        </h1>
-        <p className="mt-6 text-base leading-7 text-zinc-600 dark:text-zinc-400 sm:text-lg sm:leading-8">
-          &Eacute;tudiant &agrave; Polytech Montpellier, je con&ccedil;ois votre site vitrine de A
-          &agrave; Z avec les derni&egrave;res technologies, de la premi&egrave;re ligne de code
-          &agrave; l&apos;h&eacute;bergement vert.
-        </p>
-        <div className="mt-10">
-          <a
-            href="#contact"
-            className="inline-block rounded-md bg-sapin px-6 py-3 text-sm font-medium text-white hover:bg-sapin-dark transition-colors"
-            id="hero-cta"
-          >
-            Me parler de votre projet
-          </a>
+    <section
+      id="hero"
+      className="relative mx-auto max-w-[1160px] scroll-mt-24 px-5 py-11 sm:px-10 sm:py-16 lg:py-20"
+    >
+      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <Reveal variant="drop">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/70 py-2 pl-3 pr-4 text-[13px] font-semibold tracking-wide text-forest uppercase">
+              <PinIcon className="h-[15px] w-[15px] text-clay" />
+              Développeur web à Montpellier
+            </span>
+          </Reveal>
+
+          <Reveal variant="rise" delay={60}>
+            <h1 className="mt-5 text-balance text-[38px] leading-[1.05] tracking-tight text-forest sm:text-[48px] lg:text-[62px]">
+              Un site clair, rapide et respectueux de la planète.
+            </h1>
+          </Reveal>
+
+          <Reveal variant="rise" delay={120}>
+            <p className="mt-6 max-w-[540px] text-pretty text-lg leading-relaxed text-forest/80 sm:text-xl">
+              Je crée le site de votre activité de A à Z&nbsp;: simple pour vos clients, visible sur
+              Google, hébergé sur des serveurs alimentés en énergie renouvelable. Vous n&apos;avez
+              rien de technique à gérer.
+            </p>
+          </Reveal>
+
+          <Reveal variant="drop" delay={160}>
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <a
+                href="#contact"
+                id="hero-cta-primary"
+                className="rounded-full bg-leaf px-[30px] py-4 text-[16px] font-semibold text-white shadow-[0_12px_26px_-16px_rgba(61,90,36,0.6)] transition-[background-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-forest hover:shadow-[0_18px_32px_-18px_rgba(61,90,36,0.7)]"
+              >
+                Parlons de votre projet
+              </a>
+              <a
+                href="#offres"
+                id="hero-cta-secondary"
+                className="rounded-full bg-white/60 px-[26px] py-[15px] text-[16px] font-semibold text-forest transition-colors hover:bg-sage/55"
+              >
+                Voir les offres et les prix
+              </a>
+            </div>
+          </Reveal>
+
+          <Reveal variant="grow" delay={220}>
+            <ul className="mt-9 flex flex-wrap gap-6">
+              {checklist.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-2 text-[15px] font-medium text-forest/80"
+                >
+                  <CheckIcon className="h-[17px] w-[17px] text-leaf" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
+
+        <Reveal variant="bloom" delay={100} className="relative flex justify-center">
+          <div className="pointer-events-none absolute left-3.5 top-6 h-[280px] w-[280px] animate-blob-morph rounded-[55%_45%_60%_40%/48%_58%_42%_52%] bg-moss sm:h-[330px] sm:w-[330px]" />
+          <div className="relative h-[290px] w-[290px] animate-blob-morph overflow-hidden rounded-[58%_42%_52%_48%/46%_56%_44%_54%] bg-[radial-gradient(120%_100%_at_50%_12%,#DDE9C6_0%,#B7D99A_52%,#A3C6A0_100%)] sm:h-[340px] sm:w-[340px]">
+            <Image
+              src={portrait}
+              alt="Portrait de Marius, développeur web freelance à Montpellier"
+              fill
+              className="object-cover saturate-[0.9]"
+              sizes="340px"
+              priority
+            />
+          </div>
+          <div className="absolute -bottom-3.5 left-0 flex animate-float-y items-center gap-2.5 rounded-full bg-white/95 py-2.5 pl-3 pr-[18px] shadow-[0_14px_28px_-18px_rgba(61,90,36,0.5)]">
+            <span className="inline-flex h-[30px] w-[30px] items-center justify-center rounded-full bg-sage">
+              <GraduationCapIcon className="h-4 w-4" />
+            </span>
+            <span className="text-sm font-semibold text-forest">
+              Étudiant ingénieur
+              <br />
+              <span className="font-medium text-forest/65">Polytech Montpellier</span>
+            </span>
+          </div>
+        </Reveal>
       </div>
     </section>
+  );
+}
+
+function GraduationCapIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#3D5A24"
+      strokeWidth="2.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+      <path d="M22 10v6" />
+      <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+    </svg>
   );
 }

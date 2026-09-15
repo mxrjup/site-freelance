@@ -1,48 +1,220 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #faf7f2;
-  --foreground: #1a1a1a;
-  --sapin: #2d5f3e;
-  --sapin-dark: #1e4a2d;
-  --terracotta: #c4653a;
-  --terracotta-dark: #a8522d;
-  --beige-dark: #f0ebe3;
-  --beige-darker: #e5ded4;
+  --cream: #f4edde;
+  --cream-header: #e9dfc7;
+  --forest: #3d5a24;
+  --leaf: #4b8b3b;
+  --sage: #b7d99a;
+  --sage-light: #c9dea9;
+  --sage-pale: #dde9c6;
+  --moss: #a3c6a0;
+  --clay: #8b5b29;
+  --teal: #74b1a4;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-sapin: var(--sapin);
-  --color-sapin-dark: var(--sapin-dark);
-  --color-terracotta: var(--terracotta);
-  --color-terracotta-dark: var(--terracotta-dark);
-  --color-beige-dark: var(--beige-dark);
-  --color-beige-darker: var(--beige-darker);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #09090b;
-    --foreground: #fafafa;
-    --beige-dark: #18181b;
-    --beige-darker: #27272a;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family:
-    var(--font-sans),
-    system-ui,
-    -apple-system,
-    sans-serif;
+  --color-cream: var(--cream);
+  --color-cream-header: var(--cream-header);
+  --color-forest: var(--forest);
+  --color-leaf: var(--leaf);
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --color-sage-pale: var(--sage-pale);
+  --color-moss: var(--moss);
+  --color-clay: var(--clay);
+  --color-teal: var(--teal);
+  --font-sans: var(--font-figtree);
+  --font-display: var(--font-caprasimo);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--forest);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+}
+
+::selection {
+  background: var(--sage);
+  color: var(--forest);
+}
+
+/* Organic blob shapes and slow drifting decoration used across the landing page. */
+@keyframes blob-morph {
+  0% {
+    border-radius: 58% 42% 52% 48% / 46% 56% 44% 54%;
+  }
+  50% {
+    border-radius: 43% 57% 61% 39% / 57% 43% 57% 43%;
+  }
+  100% {
+    border-radius: 52% 48% 43% 57% / 41% 59% 47% 53%;
+  }
+}
+
+@keyframes float-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-11px);
+  }
+}
+
+@keyframes arc-a {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes arc-b {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-6deg);
+  }
+}
+
+@keyframes leaf-drift-1 {
+  from {
+    transform: rotate(18deg) translateY(0);
+  }
+  to {
+    transform: rotate(25deg) translateY(-30px);
+  }
+}
+
+@keyframes leaf-drift-2 {
+  from {
+    transform: rotate(-32deg) translateY(0);
+  }
+  to {
+    transform: rotate(-24deg) translateY(22px);
+  }
+}
+
+@keyframes leaf-drift-3 {
+  from {
+    transform: rotate(-8deg) translateY(0);
+  }
+  to {
+    transform: rotate(-2deg) translateY(-26px);
+  }
+}
+
+@keyframes leaf-drift-4 {
+  from {
+    transform: rotate(12deg) translateY(0);
+  }
+  to {
+    transform: rotate(5deg) translateY(24px);
+  }
+}
+
+@keyframes leaf-drift-5 {
+  from {
+    transform: rotate(24deg) translateY(0);
+  }
+  to {
+    transform: rotate(31deg) translateY(-20px);
+  }
+}
+
+@keyframes leaf-drift-6 {
+  from {
+    transform: rotate(-14deg) translateY(0);
+  }
+  to {
+    transform: rotate(-6deg) translateY(26px);
+  }
+}
+
+@keyframes leaf-drift-7 {
+  from {
+    transform: rotate(6deg) translateY(0);
+  }
+  to {
+    transform: rotate(-1deg) translateY(-24px);
+  }
+}
+
+@keyframes leaf-drift-8 {
+  from {
+    transform: rotate(-26deg) translateY(0);
+  }
+  to {
+    transform: rotate(-18deg) translateY(20px);
+  }
+}
+
+@keyframes ripple {
+  from {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes skin-bump {
+  0% {
+    transform: scale(0.85);
+  }
+  38% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(0.85);
+  }
+}
+
+@keyframes faq-unfurl {
+  from {
+    opacity: 0;
+    transform: perspective(1400px) rotateX(-7deg) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-blob-morph {
+  animation: blob-morph 24s ease-in-out infinite alternate;
+}
+
+.animate-float-y {
+  animation: float-y 7s ease-in-out infinite alternate;
+}
+
+.animate-faq-unfurl {
+  animation: faq-unfurl 0.56s cubic-bezier(0.2, 0.8, 0.24, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
