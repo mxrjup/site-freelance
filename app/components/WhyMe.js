@@ -16,12 +16,12 @@ export default function WhyMe({ t }) {
           {t.eyebrow}
         </Reveal>
         <Reveal delay={40}>
-          <h2 className="mt-3.5 max-w-[640px] text-pretty text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px]">
+          <h2 className="mt-3.5 max-w-[640px] text-pretty text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px] dark:text-cream">
             {t.h2}
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/75">
+          <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/75 dark:text-cream/75">
             {t.paragraph}
           </p>
         </Reveal>
@@ -40,8 +40,10 @@ export default function WhyMe({ t }) {
                 <Icon className="h-[27px] w-[27px] text-forest" />
               </span>
               <div>
-                <h3 className="mt-1.5 text-2xl leading-snug text-forest">{title}</h3>
-                <p className="mt-2.5 max-w-[560px] text-pretty text-[17px] leading-relaxed text-forest/75">
+                <h3 className="mt-1.5 text-2xl leading-snug text-forest dark:text-cream">
+                  {title}
+                </h3>
+                <p className="mt-2.5 max-w-[560px] text-pretty text-[17px] leading-relaxed text-forest/75 dark:text-cream/75">
                   {body}
                 </p>
               </div>

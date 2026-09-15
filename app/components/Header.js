@@ -2,6 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
+
+const HEADER_BG_LIGHT = '233,223,199';
+const HEADER_BG_DARK = '27,36,21';
+const HEADER_SHADOW_LIGHT = '61,90,36';
+const HEADER_SHADOW_DARK = '0,0,0';
 
 const NAV_ITEMS = [
   { key: 'why', href: '#atouts' },
@@ -21,31 +27,38 @@ export default function Header({ lang = 'fr', t }) {
     if (!header) return;
 
     const onScroll = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      const bg = isDark ? HEADER_BG_DARK : HEADER_BG_LIGHT;
+      const shadow = isDark ? HEADER_SHADOW_DARK : HEADER_SHADOW_LIGHT;
       const y = window.scrollY || document.documentElement.scrollTop || 0;
       // dead zone at the very top: no glass at all until the page starts moving
       const g = Math.max(0, Math.min(1, (y - 40) / 130));
-      header.style.background = `rgba(233,223,199,${(1 - 0.34 * g).toFixed(3)})`;
+      header.style.background = `rgba(${bg},${(1 - 0.34 * g).toFixed(3)})`;
       const lens = `blur(${(14 * g).toFixed(1)}px) saturate(${(1 + 0.85 * g).toFixed(2)})`;
       header.style.backdropFilter = lens;
       header.style.webkitBackdropFilter = lens;
       header.style.boxShadow =
         g < 0.02
           ? 'none'
-          : `0 ${(10 * g).toFixed(1)}px ${(26 * g).toFixed(1)}px -${(16 * g).toFixed(1)}px rgba(61,90,36,${(0.45 * g).toFixed(3)})`;
+          : `0 ${(10 * g).toFixed(1)}px ${(26 * g).toFixed(1)}px -${(16 * g).toFixed(1)}px rgba(${shadow},${(0.45 * g).toFixed(3)})`;
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('themechange', onScroll);
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('themechange', onScroll);
+    };
   }, []);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 bg-cream-header">
+    <header ref={headerRef} className="sticky top-0 z-50 bg-cream-header dark:bg-night-header">
       <nav className="mx-auto flex max-w-[1160px] items-center justify-between gap-8 px-5 py-[18px] sm:px-10">
         <a
           href="#hero"
           id="header-logo"
-          className="flex items-center gap-2.5 font-display text-xl text-forest"
+          className="flex items-center gap-2.5 font-display text-xl text-forest dark:text-cream"
         >
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-[60%_40%_55%_45%/50%_55%_45%_50%] bg-sage">
             <LeafIcon className="h-[18px] w-[18px]" />
@@ -60,7 +73,7 @@ export default function Header({ lang = 'fr', t }) {
                 <a
                   href={href}
                   id={`nav-${key}`}
-                  className="text-[15px] font-medium text-forest/70 transition-colors hover:text-leaf"
+                  className="text-[15px] font-medium text-forest/70 transition-colors hover:text-leaf dark:text-cream/70 dark:hover:text-leaf"
                 >
                   {label}
                 </a>
@@ -75,12 +88,13 @@ export default function Header({ lang = 'fr', t }) {
             {t.cta}
           </a>
           <LangSwitch lang={lang} label={t.langGroupLabel} />
+          <ThemeToggle label={t.themeToggleLabel} />
         </div>
 
         <button
           type="button"
           id="mobile-menu-toggle"
-          className="md:hidden p-2 text-forest"
+          className="md:hidden p-2 text-forest dark:text-cream"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? t.closeMenu : t.openMenu}
           aria-expanded={mobileOpen}
@@ -102,13 +116,13 @@ export default function Header({ lang = 'fr', t }) {
       </nav>
 
       {mobileOpen && (
-        <ul className="md:hidden flex flex-col gap-1 border-t border-forest/10 bg-cream-header px-5 py-4">
+        <ul className="md:hidden flex flex-col gap-1 border-t border-forest/10 bg-cream-header px-5 py-4 dark:border-cream/10 dark:bg-night-header">
           {navLinks.map(({ key, label, href }) => (
             <li key={key}>
               <a
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className="block rounded-lg px-2 py-2.5 text-[15px] font-medium text-forest/80 hover:text-leaf"
+                className="block rounded-lg px-2 py-2.5 text-[15px] font-medium text-forest/80 hover:text-leaf dark:text-cream/80 dark:hover:text-leaf"
               >
                 {label}
               </a>
@@ -123,6 +137,7 @@ export default function Header({ lang = 'fr', t }) {
               {t.cta}
             </a>
             <LangSwitch lang={lang} label={t.langGroupLabel} />
+            <ThemeToggle label={t.themeToggleLabel} />
           </li>
         </ul>
       )}
@@ -135,14 +150,16 @@ function LangSwitch({ lang, label }) {
     <div
       role="group"
       aria-label={label}
-      className="flex items-center gap-0.5 rounded-full border border-forest/15 p-0.5"
+      className="flex items-center gap-0.5 rounded-full border border-forest/15 p-0.5 dark:border-cream/20"
     >
       <Link
         href="/"
         id="lang-switch-fr"
         aria-current={lang === 'fr' ? 'true' : undefined}
         className={`rounded-full px-2.5 py-1 text-[13px] font-semibold transition-colors ${
-          lang === 'fr' ? 'bg-sage text-forest' : 'text-forest/55 hover:text-forest'
+          lang === 'fr'
+            ? 'bg-sage text-forest'
+            : 'text-forest/55 hover:text-forest dark:text-cream/55 dark:hover:text-cream'
         }`}
       >
         FR
@@ -152,7 +169,9 @@ function LangSwitch({ lang, label }) {
         id="lang-switch-en"
         aria-current={lang === 'en' ? 'true' : undefined}
         className={`rounded-full px-2.5 py-1 text-[13px] font-semibold transition-colors ${
-          lang === 'en' ? 'bg-sage text-forest' : 'text-forest/55 hover:text-forest'
+          lang === 'en'
+            ? 'bg-sage text-forest'
+            : 'text-forest/55 hover:text-forest dark:text-cream/55 dark:hover:text-cream'
         }`}
       >
         EN

@@ -20,12 +20,12 @@ export default function Contact({ t }) {
               {t.eyebrow}
             </Reveal>
             <Reveal delay={40}>
-              <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px]">
+              <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px] dark:text-cream">
                 {t.h2}
               </h2>
             </Reveal>
             <Reveal delay={80}>
-              <p className="mt-4 text-pretty text-lg leading-relaxed text-forest/[0.76]">
+              <p className="mt-4 text-pretty text-lg leading-relaxed text-forest/[0.76] dark:text-cream/[0.76]">
                 {t.paragraph}
               </p>
             </Reveal>
@@ -35,7 +35,9 @@ export default function Contact({ t }) {
                   <span className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-[58%_42%_52%_48%/46%_56%_44%_54%] bg-teal/25">
                     <Icon className="h-5 w-5 text-forest" />
                   </span>
-                  <span className="text-base font-medium text-forest/85">{label}</span>
+                  <span className="text-base font-medium text-forest/85 dark:text-cream/85">
+                    {label}
+                  </span>
                 </li>
               ))}
             </Reveal>
@@ -45,12 +47,12 @@ export default function Contact({ t }) {
             as="form"
             variant="drop"
             delay={60}
-            className="grid grid-cols-2 gap-4 rounded-[30px_22px_30px_22px] bg-white/[0.78] p-6 sm:rounded-[56px_30px_56px_30px] sm:p-9"
+            className="grid grid-cols-2 gap-4 rounded-[30px_22px_30px_22px] bg-white/[0.78] p-6 sm:rounded-[56px_30px_56px_30px] sm:p-9 dark:bg-white/[0.06]"
           >
             <div className="col-span-2 sm:col-span-1">
               <label
                 htmlFor="contact-nom"
-                className="mb-1.5 block text-sm font-semibold text-forest"
+                className="mb-1.5 block text-sm font-semibold text-forest dark:text-cream"
               >
                 {f.nameLabel}
               </label>
@@ -59,13 +61,13 @@ export default function Contact({ t }) {
                 name="nom"
                 type="text"
                 placeholder={f.namePlaceholder}
-                className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf"
+                className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf dark:border-cream/15 dark:bg-white/5 dark:text-cream"
               />
             </div>
             <div className="col-span-2 sm:col-span-1">
               <label
                 htmlFor="contact-tel"
-                className="mb-1.5 block text-sm font-semibold text-forest"
+                className="mb-1.5 block text-sm font-semibold text-forest dark:text-cream"
               >
                 {f.phoneLabel}
               </label>
@@ -74,13 +76,13 @@ export default function Contact({ t }) {
                 name="telephone"
                 type="tel"
                 placeholder={f.phonePlaceholder}
-                className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf"
+                className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf dark:border-cream/15 dark:bg-white/5 dark:text-cream"
               />
             </div>
             <div className="col-span-2">
               <label
                 htmlFor="contact-email"
-                className="mb-1.5 block text-sm font-semibold text-forest"
+                className="mb-1.5 block text-sm font-semibold text-forest dark:text-cream"
               >
                 {f.emailLabel}
               </label>
@@ -90,20 +92,20 @@ export default function Contact({ t }) {
                 type="email"
                 placeholder={f.emailPlaceholder}
                 required
-                className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf"
+                className="w-full rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf dark:border-cream/15 dark:bg-white/5 dark:text-cream"
               />
             </div>
             <div className="col-span-2">
               <label
                 htmlFor="contact-activite"
-                className="mb-1.5 block text-sm font-semibold text-forest"
+                className="mb-1.5 block text-sm font-semibold text-forest dark:text-cream"
               >
                 {f.activityLabel}
               </label>
               <select
                 id="contact-activite"
                 name="activite"
-                className="w-full appearance-none rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf"
+                className="w-full appearance-none rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf dark:border-cream/15 dark:bg-white/5 dark:text-cream"
               >
                 {f.activityOptions.map((option) => (
                   <option key={option}>{option}</option>
@@ -113,7 +115,7 @@ export default function Contact({ t }) {
             <div className="col-span-2">
               <label
                 htmlFor="contact-projet"
-                className="mb-1.5 block text-sm font-semibold text-forest"
+                className="mb-1.5 block text-sm font-semibold text-forest dark:text-cream"
               >
                 {f.projectLabel}
               </label>
@@ -122,7 +124,7 @@ export default function Contact({ t }) {
                 name="projet"
                 rows={5}
                 placeholder={f.projectPlaceholder}
-                className="w-full resize-y rounded-3xl border-[1.5px] border-forest/[0.18] bg-white px-5 py-4 text-base leading-relaxed text-forest outline-none transition-colors focus:border-leaf"
+                className="w-full resize-y rounded-3xl border-[1.5px] border-forest/[0.18] bg-white px-5 py-4 text-base leading-relaxed text-forest outline-none transition-colors focus:border-leaf dark:border-cream/15 dark:bg-white/5 dark:text-cream"
               />
             </div>
             <div className="col-span-2 flex flex-wrap items-center gap-4">
@@ -133,7 +135,7 @@ export default function Contact({ t }) {
               >
                 {f.submit}
               </button>
-              <span className="text-sm text-forest/60">{f.privacyNote}</span>
+              <span className="text-sm text-forest/60 dark:text-cream/60">{f.privacyNote}</span>
             </div>
           </Reveal>
         </div>

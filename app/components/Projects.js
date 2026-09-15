@@ -18,12 +18,14 @@ export default function Projects({ t }) {
           {t.eyebrow}
         </Reveal>
         <Reveal delay={40}>
-          <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px]">
+          <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px] dark:text-cream">
             {t.h2}
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-4 max-w-[600px] text-lg leading-relaxed text-forest/75">{t.paragraph}</p>
+          <p className="mt-4 max-w-[600px] text-lg leading-relaxed text-forest/75 dark:text-cream/75">
+            {t.paragraph}
+          </p>
         </Reveal>
 
         <div className="mt-9 flex flex-col gap-10 sm:mt-12 sm:gap-14">
@@ -39,11 +41,13 @@ export default function Projects({ t }) {
               <CompassIcon className="h-16 w-16 text-forest/40" />
             </Parallax>
             <div>
-              <span className="inline-block rounded-full bg-white/75 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-clay">
+              <span className="inline-block rounded-full bg-white/75 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-clay dark:bg-white/10">
                 {viaOrientation.tag}
               </span>
-              <h3 className="mt-4 text-[26px] leading-tight text-forest">{viaOrientation.title}</h3>
-              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75">
+              <h3 className="mt-4 text-[26px] leading-tight text-forest dark:text-cream">
+                {viaOrientation.title}
+              </h3>
+              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75 dark:text-cream/75">
                 {viaOrientation.body}
               </p>
             </div>
@@ -61,11 +65,13 @@ export default function Projects({ t }) {
               <UtensilsIcon className="h-16 w-16 text-forest/40" />
             </Parallax>
             <div className="sm:order-1">
-              <span className="inline-block rounded-full bg-white/75 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-clay">
+              <span className="inline-block rounded-full bg-white/75 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-clay dark:bg-white/10">
                 {hakko.tag}
               </span>
-              <h3 className="mt-4 text-[26px] leading-tight text-forest">{hakko.title}</h3>
-              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75">
+              <h3 className="mt-4 text-[26px] leading-tight text-forest dark:text-cream">
+                {hakko.title}
+              </h3>
+              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75 dark:text-cream/75">
                 {hakko.body}
               </p>
             </div>
@@ -78,7 +84,7 @@ export default function Projects({ t }) {
           >
             <Parallax
               amount={12}
-              className="relative h-[220px] overflow-hidden rounded-[52%_48%_56%_44%/48%_54%_46%_52%] bg-white/60 [animation:blob-morph_21s_ease-in-out_-4s_infinite_alternate-reverse] sm:h-[250px]"
+              className="relative h-[220px] overflow-hidden rounded-[52%_48%_56%_44%/48%_54%_46%_52%] bg-white/60 [animation:blob-morph_21s_ease-in-out_-4s_infinite_alternate-reverse] sm:h-[250px] dark:bg-white/10"
             >
               <Image
                 src={projectShot}
@@ -89,18 +95,20 @@ export default function Projects({ t }) {
               />
             </Parallax>
             <div>
-              <span className="inline-block rounded-full bg-teal/25 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-forest">
+              <span className="inline-block rounded-full bg-teal/25 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wide text-forest dark:text-cream">
                 {mxrjup.tag}
               </span>
-              <h3 className="mt-4 text-[26px] leading-tight text-forest">{mxrjup.title}</h3>
-              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75">
+              <h3 className="mt-4 text-[26px] leading-tight text-forest dark:text-cream">
+                {mxrjup.title}
+              </h3>
+              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75 dark:text-cream/75">
                 {mxrjup.body}
               </p>
               <a
                 href="https://mxrjup.fun"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3.5 inline-flex items-center gap-2 text-[15.5px] font-semibold text-clay transition-colors hover:text-forest"
+                className="mt-3.5 inline-flex items-center gap-2 text-[15.5px] font-semibold text-clay transition-colors hover:text-forest dark:hover:text-cream"
               >
                 {mxrjup.linkLabel}
                 <ExternalLinkIcon className="h-4 w-4" />

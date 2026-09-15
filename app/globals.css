@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --cream: #f4edde;
   --cream-header: #e9dfc7;
@@ -11,6 +13,13 @@
   --moss: #a3c6a0;
   --clay: #8b5b29;
   --teal: #74b1a4;
+  --night: #141c0f;
+  --night-header: #1b2415;
+  --decor-dot: rgba(61, 90, 36, 0.07);
+}
+
+:root.dark {
+  --decor-dot: rgba(244, 237, 222, 0.06);
 }
 
 @theme inline {
@@ -24,6 +33,8 @@
   --color-moss: var(--moss);
   --color-clay: var(--clay);
   --color-teal: var(--teal);
+  --color-night: var(--night);
+  --color-night-header: var(--night-header);
   --font-sans: var(--font-figtree);
   --font-display: var(--font-caprasimo);
 }
@@ -35,6 +46,11 @@ html {
 body {
   background: var(--cream);
   color: var(--forest);
+}
+
+.dark body {
+  background: var(--night);
+  color: var(--cream);
 }
 
 h1,

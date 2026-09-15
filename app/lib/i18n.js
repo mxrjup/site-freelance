@@ -8,6 +8,7 @@ export const dict = {
       openMenu: 'Ouvrir le menu de navigation',
       closeMenu: 'Fermer le menu de navigation',
       langGroupLabel: 'Choix de la langue',
+      themeToggleLabel: 'Basculer le mode sombre',
     },
     hero: {
       badge: 'Développeur web à Montpellier',
@@ -220,6 +221,7 @@ export const dict = {
       openMenu: 'Open navigation menu',
       closeMenu: 'Close navigation menu',
       langGroupLabel: 'Language selection',
+      themeToggleLabel: 'Toggle dark mode',
     },
     hero: {
       badge: 'Web developer in Montpellier',

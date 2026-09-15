@@ -20,12 +20,12 @@ export default function Faq({ t }) {
           {t.eyebrow}
         </Reveal>
         <Reveal delay={40}>
-          <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px]">
+          <h2 className="mt-3.5 text-[29px] leading-tight text-forest sm:text-[36px] lg:text-[43px] dark:text-cream">
             {t.h2}
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/75">
+          <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/75 dark:text-cream/75">
             {t.paragraph}
           </p>
         </Reveal>
@@ -39,18 +39,16 @@ export default function Faq({ t }) {
                 id={`faq-toggle-${i}`}
                 onClick={() => setOpen(i)}
                 aria-pressed={open === i}
-                className={`grid w-full grid-cols-[minmax(0,1fr)_20px] items-center gap-3.5 rounded-full px-5 py-4 text-left transition-colors ${open === i ? 'bg-sage' : 'bg-white/70 hover:bg-sage-light'}`}
+                className={`grid w-full grid-cols-[minmax(0,1fr)_20px] items-center gap-3.5 rounded-full px-5 py-4 text-left text-forest transition-colors ${open === i ? 'bg-sage' : 'bg-white/70 hover:bg-sage-light dark:bg-white/10 dark:text-cream dark:hover:bg-white/15'}`}
               >
-                <span className="text-pretty text-[17px] font-semibold leading-snug text-forest">
-                  {item.q}
-                </span>
+                <span className="text-pretty text-[17px] font-semibold leading-snug">{item.q}</span>
                 <ArrowRightIcon
-                  className={`h-[19px] w-[19px] justify-self-end text-forest transition-transform duration-300 ${open === i ? 'translate-x-1 opacity-100' : 'opacity-30'}`}
+                  className={`h-[19px] w-[19px] justify-self-end transition-transform duration-300 ${open === i ? 'translate-x-1 opacity-100' : 'opacity-30'}`}
                 />
               </button>
             ))}
             <div className="mt-3.5 flex flex-wrap items-center gap-3.5 px-1.5">
-              <p className="text-base text-forest/70">{t.noQuestion}</p>
+              <p className="text-base text-forest/70 dark:text-cream/70">{t.noQuestion}</p>
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-leaf px-5 py-3 text-[15.5px] font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-forest"
@@ -64,10 +62,12 @@ export default function Faq({ t }) {
           <div
             key={open}
             role="status"
-            className="animate-faq-unfurl relative rounded-[30px_22px_30px_22px] bg-white/70 p-7 sm:rounded-[60px_30px_60px_30px] sm:p-11"
+            className="animate-faq-unfurl relative rounded-[30px_22px_30px_22px] bg-white/70 p-7 sm:rounded-[60px_30px_60px_30px] sm:p-11 dark:bg-white/[0.06]"
           >
-            <h3 className="text-pretty text-xl leading-snug text-forest sm:text-2xl">{active.q}</h3>
-            <p className="mt-4 text-pretty text-[17px] leading-relaxed text-forest/80">
+            <h3 className="text-pretty text-xl leading-snug text-forest sm:text-2xl dark:text-cream">
+              {active.q}
+            </h3>
+            <p className="mt-4 text-pretty text-[17px] leading-relaxed text-forest/80 dark:text-cream/80">
               {active.a}
             </p>
           </div>

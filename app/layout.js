@@ -24,6 +24,8 @@ export const metadata = {
   },
 };
 
+const THEME_INIT_SCRIPT = `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -31,7 +33,10 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${figtree.variable} ${caprasimo.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream text-forest font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        {children}
+      </body>
     </html>
   );
 }

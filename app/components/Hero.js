@@ -12,20 +12,20 @@ export default function Hero({ t }) {
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <Reveal variant="drop">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/70 py-2 pl-3 pr-4 text-[13px] font-semibold tracking-wide text-forest uppercase">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/70 py-2 pl-3 pr-4 text-[13px] font-semibold tracking-wide text-forest uppercase dark:bg-white/10 dark:text-cream">
               <PinIcon className="h-[15px] w-[15px] text-clay" />
               {t.badge}
             </span>
           </Reveal>
 
           <Reveal variant="rise" delay={60}>
-            <h1 className="mt-5 text-balance text-[38px] leading-[1.05] tracking-tight text-forest sm:text-[48px] lg:text-[62px]">
+            <h1 className="mt-5 text-balance text-[38px] leading-[1.05] tracking-tight text-forest sm:text-[48px] lg:text-[62px] dark:text-cream">
               {t.h1}
             </h1>
           </Reveal>
 
           <Reveal variant="rise" delay={120}>
-            <p className="mt-6 max-w-[540px] text-pretty text-lg leading-relaxed text-forest/80 sm:text-xl">
+            <p className="mt-6 max-w-[540px] text-pretty text-lg leading-relaxed text-forest/80 sm:text-xl dark:text-cream/80">
               {t.paragraph}
             </p>
           </Reveal>
@@ -42,7 +42,7 @@ export default function Hero({ t }) {
               <a
                 href="#offres"
                 id="hero-cta-secondary"
-                className="rounded-full bg-white/60 px-[26px] py-[15px] text-[16px] font-semibold text-forest transition-colors hover:bg-sage/55"
+                className="rounded-full bg-white/60 px-[26px] py-[15px] text-[16px] font-semibold text-forest transition-colors hover:bg-sage/55 dark:bg-white/10 dark:text-cream dark:hover:bg-sage/20"
               >
                 {t.ctaSecondary}
               </a>
@@ -54,7 +54,7 @@ export default function Hero({ t }) {
               {t.checklist.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-2 text-[15px] font-medium text-forest/80"
+                  className="flex items-center gap-2 text-[15px] font-medium text-forest/80 dark:text-cream/80"
                 >
                   <CheckIcon className="h-[17px] w-[17px] text-leaf" />
                   {item}
@@ -76,14 +76,16 @@ export default function Hero({ t }) {
               priority
             />
           </div>
-          <div className="absolute -bottom-3.5 left-0 flex animate-float-y items-center gap-2.5 rounded-full bg-white/95 py-2.5 pl-3 pr-[18px] shadow-[0_14px_28px_-18px_rgba(61,90,36,0.5)]">
+          <div className="absolute -bottom-3.5 left-0 flex animate-float-y items-center gap-2.5 rounded-full bg-white/95 py-2.5 pl-3 pr-[18px] shadow-[0_14px_28px_-18px_rgba(61,90,36,0.5)] dark:bg-night-header">
             <span className="inline-flex h-[30px] w-[30px] items-center justify-center rounded-full bg-sage">
               <GraduationCapIcon className="h-4 w-4" />
             </span>
-            <span className="text-sm font-semibold text-forest">
+            <span className="text-sm font-semibold text-forest dark:text-cream">
               {t.studentLine1}
               <br />
-              <span className="font-medium text-forest/65">{t.studentLine2}</span>
+              <span className="font-medium text-forest/65 dark:text-cream/65">
+                {t.studentLine2}
+              </span>
             </span>
           </div>
         </Reveal>
