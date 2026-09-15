@@ -1,3 +1,5 @@
+import { SITE_URL } from './lib/siteUrl';
+
 export const dynamic = 'force-static';
 
 export default function robots() {
@@ -6,6 +8,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://example.com/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

@@ -1,7 +1,9 @@
+import { SITE_URL } from './lib/siteUrl';
+
 export const dynamic = 'force-static';
 
 export default function sitemap() {
-  const baseUrl = 'https://example.com';
+  const baseUrl = SITE_URL;
   const lastModified = new Date();
   const languages = { fr: baseUrl, en: `${baseUrl}/en/` };
 

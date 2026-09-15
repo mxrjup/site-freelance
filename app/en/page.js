@@ -9,9 +9,19 @@ import Faq from '../components/Faq';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { dict } from '../lib/i18n';
+import { buildProfessionalServiceSchema, schemaScriptProps } from '../lib/schema';
+import { SITE_URL } from '../lib/siteUrl';
 
 const lang = 'en';
 const t = dict[lang];
+
+const schema = buildProfessionalServiceSchema({
+  name: 'Marius Dev',
+  description: t.meta.description,
+  url: `${SITE_URL}/en/`,
+  image: `${SITE_URL}/en/opengraph-image`,
+  priceRange: '€500+',
+});
 
 export const metadata = {
   title: t.meta.title,
@@ -39,6 +49,7 @@ export const metadata = {
 export default function HomeEn() {
   return (
     <div className="relative flex flex-1 flex-col">
+      <script {...schemaScriptProps(schema)} />
       <BackgroundDecor />
       <main className="relative flex-1">
         <Hero t={t.hero} />

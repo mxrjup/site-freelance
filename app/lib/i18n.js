@@ -192,9 +192,9 @@ export const dict = {
       cta: "Retour à l'accueil",
     },
     meta: {
-      title: 'Marius — Développeur web freelance à Montpellier',
+      title: 'Marius Dev — Développeur web freelance à Montpellier',
       description:
-        'Étudiant ingénieur à Polytech Montpellier, je crée des sites vitrines éco-responsables, performants et hébergés sur des serveurs verts Infomaniak.',
+        'Étudiant ingénieur à Polytech Montpellier, je crée des sites vitrines éco-responsables, performants et hébergés sur des serveurs verts Infomaniak. Devis offert.',
       keywords: [
         'développeur web freelance Montpellier',
         'création site vitrine',
@@ -397,9 +397,9 @@ export const dict = {
       cta: 'Back to homepage',
     },
     meta: {
-      title: 'Marius — Freelance Web Developer in Montpellier',
+      title: 'Marius Dev — Freelance Web Developer in Montpellier',
       description:
-        "Engineering student at Polytech Montpellier, I build eco-friendly, high-performance showcase websites hosted on Infomaniak's green servers.",
+        "Engineering student at Polytech Montpellier, I build eco-friendly, high-performance showcase websites hosted on Infomaniak's green servers. Reply within 24h.",
       keywords: [
         'freelance web developer Montpellier',
         'showcase website design',
