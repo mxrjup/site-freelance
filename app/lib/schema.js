@@ -18,6 +18,21 @@ export function buildProfessionalServiceSchema({ name, description, url, image, 
   };
 }
 
+export function buildFaqSchema(items) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: a,
+      },
+    })),
+  };
+}
+
 export function schemaScriptProps(schema) {
   return {
     type: 'application/ld+json',

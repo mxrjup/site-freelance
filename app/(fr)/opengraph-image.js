@@ -1,4 +1,4 @@
-import { renderOgImage, size, contentType } from './lib/ogImage';
+import { renderOgImage, size, contentType } from '../lib/ogImage';
 
 export const dynamic = 'force-static';
 export const alt = 'Marius — Développeur web freelance à Montpellier';
