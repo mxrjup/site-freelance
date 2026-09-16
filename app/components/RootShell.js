@@ -1,5 +1,6 @@
 import { Figtree, Caprasimo } from 'next/font/google';
 import Header from './Header';
+import { THEME_INIT_SCRIPT } from '../lib/themeInit';
 import '../globals.css';
 
 const figtree = Figtree({
@@ -14,8 +15,6 @@ const caprasimo = Caprasimo({
   weight: '400',
   display: 'swap',
 });
-
-const THEME_INIT_SCRIPT = `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
 
 export default function RootShell({ lang, children }) {
   return (
