@@ -3,6 +3,12 @@ import { LeafIcon } from './icons';
 const SITE_HREFS = ['#atouts', '#realisations', '#offres'];
 const CONTACT_HREFS = ['#contact', '#questions'];
 
+// This is a static export with no server, so `year` below is whatever the
+// last build happened to run on. This inline script corrects it client-side
+// (like RootShell's theme-init script) so the copyright year stays accurate
+// between deploys instead of freezing until the next one.
+const FOOTER_YEAR_SCRIPT = `(function(){var el=document.getElementById('footer-year');if(el)el.textContent=new Date().getFullYear();})();`;
+
 export default function Footer({ t }) {
   const year = new Date().getFullYear();
 
@@ -61,11 +67,12 @@ export default function Footer({ t }) {
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3.5 border-t border-sage/25 pt-4">
           <p className="text-[13.5px] text-white/60">
-            {t.brand} — {year}
+            {t.brand} — <span id="footer-year">{year}</span>
           </p>
           <p className="text-[13.5px] text-white/60">{t.bottomRight}</p>
         </div>
       </div>
+      <script dangerouslySetInnerHTML={{ __html: FOOTER_YEAR_SCRIPT }} />
     </footer>
   );
 }
