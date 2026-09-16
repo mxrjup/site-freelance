@@ -50,13 +50,13 @@ export default function Hero({ t }) {
           </Reveal>
 
           <Reveal variant="grow" delay={220}>
-            <ul className="mt-9 flex flex-wrap gap-6">
+            <ul className="mt-9 flex flex-wrap gap-x-4 gap-y-2.5">
               {t.checklist.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-2 text-[15px] font-medium text-forest/80 dark:text-cream/80"
+                  className="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-[14px] font-medium text-forest/80 dark:text-cream/80"
                 >
-                  <CheckIcon className="h-[17px] w-[17px] text-leaf" />
+                  <CheckIcon className="h-4 w-4 shrink-0 text-leaf" />
                   {item}
                 </li>
               ))}

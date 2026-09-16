@@ -11,7 +11,7 @@ export default function WhyMe({ t }) {
       className="relative mx-auto grid max-w-[1160px] scroll-mt-24 grid-cols-1 px-5 sm:px-10 lg:grid-cols-[clamp(20px,6vw,66px)_minmax(0,1fr)]"
     >
       <div aria-hidden="true" className="hidden lg:block" />
-      <div className="pt-12 lg:pt-16">
+      <div className="pt-6 lg:pt-8">
         <Reveal as="p" className="text-[13px] font-bold uppercase tracking-[0.08em] text-clay">
           {t.eyebrow}
         </Reveal>
