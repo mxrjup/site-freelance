@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Reveal from './Reveal';
 import { ArrowRightIcon } from './icons';
 
@@ -8,6 +8,21 @@ export default function Faq({ t }) {
   const [open, setOpen] = useState(0);
   const items = t.items;
   const active = items[open];
+  const panelRef = useRef(null);
+
+  useEffect(() => {
+    // Replay the entrance animation on every question change without
+    // unmounting the panel (no `key` prop), so its `role="status"` node
+    // stays the same element and screen readers pick up the content change
+    // as a live-region update instead of missing a destroyed-and-recreated
+    // node. Same "reset, force reflow, reapply" technique as
+    // ScrollProgressRail's skin-bump/ripple animations.
+    const el = panelRef.current;
+    if (!el) return;
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
+  }, [open]);
 
   return (
     <section
@@ -60,7 +75,7 @@ export default function Faq({ t }) {
           </div>
 
           <div
-            key={open}
+            ref={panelRef}
             role="status"
             className="animate-faq-unfurl relative rounded-[30px_22px_30px_22px] bg-white/70 p-7 sm:rounded-[60px_30px_60px_30px] sm:p-11 dark:bg-white/[0.06]"
           >
