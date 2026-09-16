@@ -39,7 +39,7 @@ export default function Faq({ t }) {
                 id={`faq-toggle-${i}`}
                 onClick={() => setOpen(i)}
                 aria-pressed={open === i}
-                className={`grid w-full grid-cols-[minmax(0,1fr)_20px] items-center gap-3.5 rounded-full px-5 py-4 text-left text-forest transition-colors ${open === i ? 'bg-sage' : 'bg-white/70 hover:bg-sage-light dark:bg-white/10 dark:text-cream dark:hover:bg-white/15'}`}
+                className={`grid w-full cursor-pointer grid-cols-[minmax(0,1fr)_20px] items-center gap-3.5 rounded-full px-5 py-4 text-left text-forest transition-colors ${open === i ? 'bg-sage' : 'bg-white/70 hover:bg-sage-light dark:bg-white/10 dark:text-cream dark:hover:bg-white/15'}`}
               >
                 <span className="text-pretty text-[17px] font-semibold leading-snug">{item.q}</span>
                 <ArrowRightIcon

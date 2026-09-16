@@ -20,10 +20,10 @@ export default function ThemeToggle({ label }) {
       id="theme-toggle"
       onClick={toggle}
       aria-label={label}
-      className="inline-flex h-[27px] w-[27px] items-center justify-center rounded-full border border-forest/15 text-forest/70 transition-colors hover:text-forest dark:border-cream/20 dark:text-cream/70 dark:hover:text-cream"
+      className="relative inline-flex h-[27px] w-[27px] cursor-pointer items-center justify-center rounded-full border border-forest/15 text-forest/70 transition-colors hover:text-forest dark:border-cream/20 dark:text-cream/70 dark:hover:text-cream"
     >
-      <SunIcon className="hidden h-[15px] w-[15px] dark:block" />
-      <MoonIcon className="block h-[15px] w-[15px] dark:hidden" />
+      <SunIcon className="absolute h-[15px] w-[15px] rotate-0 opacity-100 transition-[opacity,transform] duration-300 ease-out dark:-rotate-90 dark:opacity-0" />
+      <MoonIcon className="absolute h-[15px] w-[15px] rotate-90 opacity-0 transition-[opacity,transform] duration-300 ease-out dark:rotate-0 dark:opacity-100" />
     </button>
   );
 }

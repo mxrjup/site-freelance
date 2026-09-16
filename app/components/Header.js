@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
-import { headerText } from '../lib/headerText';
+import { ChevronDownIcon } from './icons';
+import { headerText, LANG_OPTIONS } from '../lib/headerText';
 import { useLang } from '../lib/useLang';
 
 const HEADER_BG_LIGHT = '233,223,199';
@@ -58,20 +59,20 @@ export default function Header() {
 
   return (
     <header ref={headerRef} className="sticky top-0 z-50 bg-cream-header dark:bg-night-header">
-      <nav className="mx-auto flex max-w-[1160px] items-center justify-between gap-8 px-5 py-[18px] sm:px-10">
-        <a
-          href="#hero"
-          id="header-logo"
-          className="flex items-center gap-2.5 font-display text-xl text-forest dark:text-cream"
-        >
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-[60%_40%_55%_45%/50%_55%_45%_50%] bg-sage">
-            <LeafIcon className="h-[18px] w-[18px]" />
-          </span>
-          Marius Dev
-        </a>
+      <nav className="mx-auto flex w-full max-w-[1800px] items-center justify-between px-5 py-[18px] sm:px-10 lg:px-14 xl:px-20">
+        <div className="flex items-center gap-10">
+          <a
+            href="#hero"
+            id="header-logo"
+            className="flex items-center gap-2.5 font-display text-xl text-forest dark:text-cream"
+          >
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-[60%_40%_55%_45%/50%_55%_45%_50%] bg-sage">
+              <LeafIcon className="h-[18px] w-[18px]" />
+            </span>
+            Marius Dev
+          </a>
 
-        <div className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-7">
+          <ul className="hidden items-center gap-7 md:flex">
             {navLinks.map(({ key, label, href }) => (
               <li key={key}>
                 <a
@@ -84,21 +85,24 @@ export default function Header() {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="hidden items-center gap-5 md:flex">
           <a
             href="#contact"
             id="header-cta"
-            className="rounded-full bg-leaf px-[22px] py-[11px] text-[15px] font-semibold text-white transition-[background-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-forest hover:shadow-[0_18px_32px_-18px_rgba(61,90,36,0.7)]"
+            className="rounded-full bg-leaf px-[22px] py-[11px] text-[15px] font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-forest"
           >
             {t.cta}
           </a>
-          <LangSwitch lang={lang} label={t.langGroupLabel} />
+          <LangSwitch lang={lang} label={t.langGroupLabel} idPrefix="desktop" />
           <ThemeToggle label={t.themeToggleLabel} />
         </div>
 
         <button
           type="button"
           id="mobile-menu-toggle"
-          className="md:hidden p-2 text-forest dark:text-cream"
+          className="cursor-pointer p-2 text-forest md:hidden dark:text-cream"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? t.closeMenu : t.openMenu}
           aria-expanded={mobileOpen}
@@ -140,7 +144,7 @@ export default function Header() {
             >
               {t.cta}
             </a>
-            <LangSwitch lang={lang} label={t.langGroupLabel} />
+            <LangSwitch lang={lang} label={t.langGroupLabel} idPrefix="mobile" />
             <ThemeToggle label={t.themeToggleLabel} />
           </li>
         </ul>
@@ -149,43 +153,67 @@ export default function Header() {
   );
 }
 
-function LangSwitch({ lang, label }) {
+function LangSwitch({ lang, label, idPrefix }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+  const current = LANG_OPTIONS.find((option) => option.code === lang);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e) => {
+      if (rootRef.current && !rootRef.current.contains(e.target)) setOpen(false);
+    };
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
+
   return (
-    <div
-      role="group"
-      aria-label={label}
-      className="relative flex items-center rounded-full border border-forest/15 p-0.5 dark:border-cream/20"
-    >
-      <span
-        aria-hidden="true"
-        className={`absolute left-0.5 top-0.5 h-7 w-9 rounded-full bg-sage transition-transform duration-300 ease-out ${
-          lang === 'en' ? 'translate-x-9' : 'translate-x-0'
-        }`}
-      />
-      <Link
-        href="/"
-        id="lang-switch-fr"
-        aria-current={lang === 'fr' ? 'true' : undefined}
-        className={`relative z-10 flex h-7 w-9 items-center justify-center rounded-full text-[13px] font-semibold transition-colors duration-200 ${
-          lang === 'fr'
-            ? 'text-forest'
-            : 'text-forest/55 hover:text-forest dark:text-cream/55 dark:hover:text-cream'
-        }`}
+    <div ref={rootRef} className="relative">
+      <button
+        type="button"
+        id={`lang-switch-${idPrefix}-toggle`}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={label}
+        onClick={() => setOpen((v) => !v)}
+        className="flex cursor-pointer items-center gap-1 rounded-full border border-forest/15 py-[7px] pl-3 pr-2.5 text-[13px] font-semibold text-forest dark:border-cream/20 dark:text-cream"
       >
-        FR
-      </Link>
-      <Link
-        href="/en"
-        id="lang-switch-en"
-        aria-current={lang === 'en' ? 'true' : undefined}
-        className={`relative z-10 flex h-7 w-9 items-center justify-center rounded-full text-[13px] font-semibold transition-colors duration-200 ${
-          lang === 'en'
-            ? 'text-forest'
-            : 'text-forest/55 hover:text-forest dark:text-cream/55 dark:hover:text-cream'
-        }`}
-      >
-        EN
-      </Link>
+        {current.short}
+        <ChevronDownIcon
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+        />
+      </button>
+      {open && (
+        <ul
+          role="listbox"
+          aria-label={label}
+          className="absolute right-0 top-full z-20 mt-2 min-w-[132px] rounded-xl border border-forest/15 bg-cream-header py-1 shadow-[0_14px_28px_-18px_rgba(61,90,36,0.5)] dark:border-cream/20 dark:bg-night-header"
+        >
+          {LANG_OPTIONS.map((option) => (
+            <li key={option.code} role="option" aria-selected={option.code === lang}>
+              <Link
+                href={option.href}
+                id={`lang-switch-${idPrefix}-${option.code}`}
+                onClick={() => setOpen(false)}
+                className={`block px-3.5 py-2 text-[14px] font-medium transition-colors ${
+                  option.code === lang
+                    ? 'text-forest dark:text-cream'
+                    : 'text-forest/60 hover:text-forest dark:text-cream/60 dark:hover:text-cream'
+                }`}
+              >
+                {option.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

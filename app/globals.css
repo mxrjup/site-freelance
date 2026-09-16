@@ -53,6 +53,35 @@ body {
   color: var(--cream);
 }
 
+/* Smooth cross-fade between light and dark palettes instead of an instant
+   cut when the theme is toggled. Wrapped in Tailwind's "base" layer so any
+   element's own transition utility (e.g. transition-colors, transition-
+   [opacity,transform]) still wins over this default, as it lives in the
+   later "utilities" layer regardless of selector specificity. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    transition:
+      background-color 300ms ease,
+      border-color 300ms ease,
+      color 300ms ease,
+      fill 300ms ease,
+      stroke 300ms ease;
+  }
+
+  /* The header's own background is already animated on scroll via inline
+     styles (see Header.js); transitioning it here too would make it lag
+     behind the scroll position. */
+  header {
+    transition:
+      border-color 300ms ease,
+      color 300ms ease,
+      fill 300ms ease,
+      stroke 300ms ease;
+  }
+}
+
 h1,
 h2,
 h3,

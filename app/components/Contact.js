@@ -120,7 +120,7 @@ export default function Contact({ t, redirectTo }) {
               <select
                 id="contact-activite"
                 name="activite"
-                className="w-full appearance-none rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf dark:border-cream/15 dark:bg-white/5 dark:text-cream"
+                className="w-full cursor-pointer appearance-none rounded-full border-[1.5px] border-forest/[0.18] bg-white px-5 py-3 text-base text-forest outline-none transition-colors focus:border-leaf dark:border-cream/15 dark:bg-white/5 dark:text-cream"
               >
                 {f.activityOptions.map((option) => (
                   <option key={option}>{option}</option>
@@ -146,7 +146,7 @@ export default function Contact({ t, redirectTo }) {
               <button
                 type="submit"
                 id="contact-submit"
-                className="rounded-full bg-leaf px-8 py-4 text-base font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-forest"
+                className="cursor-pointer rounded-full bg-leaf px-8 py-4 text-base font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-forest"
               >
                 {f.submit}
               </button>

@@ -163,3 +163,11 @@ export function MoonIcon(props) {
     </svg>
   );
 }
+
+export function ChevronDownIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
