@@ -9,6 +9,13 @@ export function buildProfessionalServiceSchema({ name, description, url, image, 
     url,
     image,
     email: CONTACT_EMAIL,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Place Eugène Bataillon, CC419',
+      addressLocality: 'Montpellier',
+      postalCode: '34095',
+      addressCountry: 'FR',
+    },
     areaServed: {
       '@type': 'City',
       name: 'Montpellier',
