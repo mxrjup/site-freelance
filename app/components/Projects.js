@@ -23,7 +23,7 @@ export default function Projects({ t }) {
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-4 max-w-[600px] text-lg leading-relaxed text-forest/75 dark:text-cream/75">
+          <p className="mt-4 max-w-[600px] text-lg leading-relaxed text-forest/90 dark:text-cream/75">
             {t.paragraph}
           </p>
         </Reveal>
@@ -47,7 +47,7 @@ export default function Projects({ t }) {
               <h3 className="mt-4 text-[26px] leading-tight text-forest dark:text-cream">
                 {viaOrientation.title}
               </h3>
-              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75 dark:text-cream/75">
+              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/90 dark:text-cream/75">
                 {viaOrientation.body}
               </p>
             </div>
@@ -71,7 +71,7 @@ export default function Projects({ t }) {
               <h3 className="mt-4 text-[26px] leading-tight text-forest dark:text-cream">
                 {hakko.title}
               </h3>
-              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75 dark:text-cream/75">
+              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/90 dark:text-cream/75">
                 {hakko.body}
               </p>
             </div>
@@ -101,7 +101,7 @@ export default function Projects({ t }) {
               <h3 className="mt-4 text-[26px] leading-tight text-forest dark:text-cream">
                 {mxrjup.title}
               </h3>
-              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/75 dark:text-cream/75">
+              <p className="mt-3 max-w-[480px] text-pretty text-[17px] leading-relaxed text-forest/90 dark:text-cream/75">
                 {mxrjup.body}
               </p>
               <a

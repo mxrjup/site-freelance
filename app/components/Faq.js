@@ -25,7 +25,7 @@ export default function Faq({ t }) {
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/75 dark:text-cream/75">
+          <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/90 dark:text-cream/75">
             {t.paragraph}
           </p>
         </Reveal>
@@ -48,7 +48,7 @@ export default function Faq({ t }) {
               </button>
             ))}
             <div className="mt-3.5 flex flex-wrap items-center gap-3.5 px-1.5">
-              <p className="text-base text-forest/70 dark:text-cream/70">{t.noQuestion}</p>
+              <p className="text-base text-forest/85 dark:text-cream/70">{t.noQuestion}</p>
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-leaf px-5 py-3 text-[15.5px] font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-forest"
@@ -67,7 +67,7 @@ export default function Faq({ t }) {
             <h3 className="text-pretty text-xl leading-snug text-forest sm:text-2xl dark:text-cream">
               {active.q}
             </h3>
-            <p className="mt-4 text-pretty text-[17px] leading-relaxed text-forest/80 dark:text-cream/80">
+            <p className="mt-4 text-pretty text-[17px] leading-relaxed text-forest/90 dark:text-cream/80">
               {active.a}
             </p>
           </div>

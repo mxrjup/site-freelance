@@ -25,7 +25,7 @@ export default function Hero({ t }) {
           </Reveal>
 
           <Reveal variant="rise" delay={120}>
-            <p className="mt-6 max-w-[540px] text-pretty text-lg leading-relaxed text-forest/80 sm:text-xl dark:text-cream/80">
+            <p className="mt-6 max-w-[540px] text-pretty text-lg leading-relaxed text-forest/90 sm:text-xl dark:text-cream/80">
               {t.paragraph}
             </p>
           </Reveal>
@@ -54,7 +54,7 @@ export default function Hero({ t }) {
               {t.checklist.map((item) => (
                 <li
                   key={item}
-                  className="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-[14px] font-medium text-forest/80 dark:text-cream/80"
+                  className="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-[14px] font-medium text-forest/90 dark:text-cream/80"
                 >
                   <CheckIcon className="h-4 w-4 shrink-0 text-leaf" />
                   {item}
@@ -83,7 +83,7 @@ export default function Hero({ t }) {
             <span className="text-sm font-semibold text-forest dark:text-cream">
               {t.studentLine1}
               <br />
-              <span className="font-medium text-forest/65 dark:text-cream/65">
+              <span className="font-medium text-forest/85 dark:text-cream/65">
                 {t.studentLine2}
               </span>
             </span>

@@ -20,7 +20,7 @@ export default function Pricing({ t }) {
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-4 max-w-[620px] text-lg leading-relaxed text-forest/75 dark:text-cream/75">
+          <p className="mt-4 max-w-[620px] text-lg leading-relaxed text-forest/90 dark:text-cream/75">
             {t.paragraph}
           </p>
         </Reveal>
@@ -32,14 +32,14 @@ export default function Pricing({ t }) {
             className="rounded-[30px_22px_30px_22px] bg-white/65 p-7 sm:rounded-[56px_30px_56px_30px] sm:p-11 dark:bg-white/[0.06]"
           >
             <h3 className="text-2xl leading-tight text-forest dark:text-cream">{planA.title}</h3>
-            <p className="mt-3 text-[16.5px] leading-relaxed text-forest/75 dark:text-cream/75">
+            <p className="mt-3 text-[16.5px] leading-relaxed text-forest/90 dark:text-cream/75">
               {planA.body}
             </p>
             <div className="mt-6 flex flex-col gap-1">
               <p className="font-display text-[27px] leading-tight text-clay sm:text-[33px]">
                 {planA.price}
               </p>
-              <p className="text-sm font-medium text-forest/60 dark:text-cream/60">
+              <p className="text-sm font-medium text-forest/85 dark:text-cream/60">
                 {planA.priceNote}
               </p>
             </div>
@@ -47,7 +47,7 @@ export default function Pricing({ t }) {
               {planA.features.map((feat) => (
                 <li
                   key={feat}
-                  className="flex items-start gap-2.5 text-base leading-snug text-forest/80 dark:text-cream/80"
+                  className="flex items-start gap-2.5 text-base leading-snug text-forest/90 dark:text-cream/80"
                 >
                   <CheckIcon className="mt-[3px] h-[18px] w-[18px] shrink-0 text-leaf" />
                   {feat}
@@ -74,14 +74,14 @@ export default function Pricing({ t }) {
             <h3 className="mt-4 text-2xl leading-tight text-forest dark:text-cream">
               {planB.title}
             </h3>
-            <p className="mt-3 text-[16.5px] leading-relaxed text-forest/[0.78] dark:text-cream/[0.78]">
+            <p className="mt-3 text-[16.5px] leading-relaxed text-forest/90 dark:text-cream/[0.78]">
               {planB.body}
             </p>
             <div className="mt-6 flex flex-col gap-1">
               <p className="font-display text-[27px] leading-tight text-clay sm:text-[33px]">
                 {planB.price}
               </p>
-              <p className="text-sm font-medium text-forest/[0.66] dark:text-cream/[0.66]">
+              <p className="text-sm font-medium text-forest/85 dark:text-cream/[0.66]">
                 {planB.priceNote}
               </p>
             </div>

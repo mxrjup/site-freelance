@@ -21,7 +21,7 @@ export default function WhyMe({ t }) {
           </h2>
         </Reveal>
         <Reveal delay={80}>
-          <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/75 dark:text-cream/75">
+          <p className="mt-4 max-w-[620px] text-pretty text-lg leading-relaxed text-forest/90 dark:text-cream/75">
             {t.paragraph}
           </p>
         </Reveal>
@@ -43,7 +43,7 @@ export default function WhyMe({ t }) {
                 <h3 className="mt-1.5 text-2xl leading-snug text-forest dark:text-cream">
                   {title}
                 </h3>
-                <p className="mt-2.5 max-w-[560px] text-pretty text-[17px] leading-relaxed text-forest/75 dark:text-cream/75">
+                <p className="mt-2.5 max-w-[560px] text-pretty text-[17px] leading-relaxed text-forest/90 dark:text-cream/75">
                   {body}
                 </p>
               </div>

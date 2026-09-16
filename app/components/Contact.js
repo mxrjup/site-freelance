@@ -29,7 +29,7 @@ export default function Contact({ t, redirectTo }) {
               </h2>
             </Reveal>
             <Reveal delay={80}>
-              <p className="mt-4 text-pretty text-lg leading-relaxed text-forest/[0.76] dark:text-cream/[0.76]">
+              <p className="mt-4 text-pretty text-lg leading-relaxed text-forest/90 dark:text-cream/[0.76]">
                 {t.paragraph}
               </p>
             </Reveal>
@@ -150,7 +150,7 @@ export default function Contact({ t, redirectTo }) {
               >
                 {f.submit}
               </button>
-              <span className="text-sm text-forest/60 dark:text-cream/60">{f.privacyNote}</span>
+              <span className="text-sm text-forest/85 dark:text-cream/60">{f.privacyNote}</span>
             </div>
           </Reveal>
         </div>

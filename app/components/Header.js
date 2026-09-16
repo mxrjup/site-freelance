@@ -78,7 +78,7 @@ export default function Header() {
                 <a
                   href={href}
                   id={`nav-${key}`}
-                  className="text-[15px] font-medium text-forest/70 transition-colors hover:text-leaf dark:text-cream/70 dark:hover:text-leaf"
+                  className="text-[15px] font-medium text-forest/85 transition-colors hover:text-leaf dark:text-cream/70 dark:hover:text-leaf"
                 >
                   {label}
                 </a>
@@ -130,7 +130,7 @@ export default function Header() {
               <a
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className="block rounded-lg px-2 py-2.5 text-[15px] font-medium text-forest/80 hover:text-leaf dark:text-cream/80 dark:hover:text-leaf"
+                className="block rounded-lg px-2 py-2.5 text-[15px] font-medium text-forest/90 hover:text-leaf dark:text-cream/80 dark:hover:text-leaf"
               >
                 {label}
               </a>
@@ -205,7 +205,7 @@ function LangSwitch({ lang, label, idPrefix }) {
                 className={`block px-3.5 py-2 text-[14px] font-medium transition-colors ${
                   option.code === lang
                     ? 'text-forest dark:text-cream'
-                    : 'text-forest/60 hover:text-forest dark:text-cream/60 dark:hover:text-cream'
+                    : 'text-forest/85 hover:text-forest dark:text-cream/60 dark:hover:text-cream'
                 }`}
               >
                 {option.name}
