@@ -38,7 +38,7 @@ export default function GlobalNotFound() {
     >
       <body className="min-h-full flex flex-col font-sans">
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
-        <Header />
+        <Header lang="fr" />
         <NotFoundPage lang="fr" />
       </body>
     </html>

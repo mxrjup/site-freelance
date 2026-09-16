@@ -1,6 +1,8 @@
 // Kept separate from app/lib/i18n.js so the client-side Header component
-// (persistent across navigation, see useLang) only ever ships these few
-// strings to the browser instead of the whole site's copy in both languages.
+// only ever ships these few strings to the browser instead of the whole
+// site's copy in both languages. Header receives `lang` as a prop (from
+// RootShell, which already gets it from the per-locale root layout) rather
+// than detecting it itself.
 export const headerText = {
   fr: {
     nav: ['Pourquoi moi', 'Engagement', 'Réalisations', 'Offres', 'Questions'],

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import { ChevronDownIcon } from './icons';
 import { headerText, LANG_OPTIONS } from '../lib/headerText';
-import { useLang } from '../lib/useLang';
 
 const HEADER_BG_LIGHT = '233,223,199';
 const HEADER_BG_DARK = '27,36,21';
@@ -20,8 +19,7 @@ const NAV_ITEMS = [
   { key: 'faq', href: '#questions' },
 ];
 
-export default function Header() {
-  const lang = useLang();
+export default function Header({ lang }) {
   const t = headerText[lang];
   const headerRef = useRef(null);
   const [mobileOpen, setMobileOpen] = useState(false);

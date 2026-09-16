@@ -28,7 +28,7 @@ export default function RootShell({ lang, children }) {
         <noscript>
           <style>{'.js-reveal{opacity:1!important;transform:none!important}'}</style>
         </noscript>
-        <Header />
+        <Header lang={lang} />
         {children}
       </body>
     </html>
