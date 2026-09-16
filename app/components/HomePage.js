@@ -20,7 +20,7 @@ export default function HomePage({ lang }) {
     name: 'Marius Dev',
     description: t.meta.description,
     url: `${SITE_URL}${path}`,
-    image: `${SITE_URL}${path}opengraph-image`,
+    image: `${SITE_URL}/images/portrait-marius.webp`,
     priceRange: lang === 'fr' ? '500€+' : '€500+',
   });
 
