@@ -194,7 +194,7 @@ export const dict = {
     meta: {
       title: 'Marius Dev — Développeur web freelance à Montpellier',
       description:
-        'Étudiant ingénieur à Polytech Montpellier, je crée des sites vitrines éco-responsables et performants, hébergés sur des serveurs verts. Devis offert.',
+        'Étudiant ingénieur à Polytech Montpellier, je crée des sites vitrines éco-responsables et performants, hébergés sur des serveurs verts en Europe. Devis offert.',
       ogDescription:
         'Sites vitrines sur-mesure, éco-responsables et hébergés sur des serveurs verts. Étudiant ingénieur à Polytech Montpellier.',
       twitterDescription:
