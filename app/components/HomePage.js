@@ -21,7 +21,7 @@ export default function HomePage({ lang }) {
     description: t.meta.description,
     url: `${SITE_URL}${path}`,
     image: `${SITE_URL}/images/portrait-marius.webp`,
-    priceRange: lang === 'fr' ? '500€+' : '€500+',
+    priceRange: '€€',
   });
 
   const faqSchema = buildFaqSchema(t.faq.items);
