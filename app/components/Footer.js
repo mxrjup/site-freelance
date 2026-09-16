@@ -34,7 +34,7 @@ export default function Footer({ t }) {
                 {t.siteLinks.map((label, i) => (
                   <li key={label}>
                     <a
-                      href={SITE_HREFS[i]}
+                      href={SITE_HREFS[i] ?? '#hero'}
                       className="text-[15px] text-white/[0.82] hover:text-sage"
                     >
                       {label}
@@ -51,7 +51,7 @@ export default function Footer({ t }) {
                 {t.contactLinks.map((label, i) => (
                   <li key={label}>
                     <a
-                      href={CONTACT_HREFS[i]}
+                      href={CONTACT_HREFS[i] ?? '#hero'}
                       className="text-[15px] text-white/[0.82] hover:text-sage"
                     >
                       {label}
