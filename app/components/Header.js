@@ -102,7 +102,7 @@ export default function Header() {
         <button
           type="button"
           id="mobile-menu-toggle"
-          className="cursor-pointer p-2 text-forest md:hidden dark:text-cream"
+          className="cursor-pointer p-2.5 text-forest md:hidden dark:text-cream"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? t.closeMenu : t.openMenu}
           aria-expanded={mobileOpen}
