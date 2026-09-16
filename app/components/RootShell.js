@@ -25,6 +25,9 @@ export default function RootShell({ lang, children }) {
     >
       <body className="min-h-full flex flex-col font-sans">
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <noscript>
+          <style>{'.js-reveal{opacity:1!important;transform:none!important}'}</style>
+        </noscript>
         <Header />
         {children}
       </body>

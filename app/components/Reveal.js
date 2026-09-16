@@ -15,6 +15,10 @@ const VARIANTS = {
  * Fades and slides children into place the first time they enter the
  * viewport. A light stand-in for the original scroll-choreography, built on
  * IntersectionObserver instead of a per-frame scroll listener.
+ *
+ * The `js-reveal` class is a hook for RootShell's <noscript> stylesheet,
+ * which forces full opacity/no transform when JS never runs to flip
+ * `visible`, so content isn't permanently invisible without JS.
  */
 export default function Reveal({
   as: Tag = 'div',
@@ -49,7 +53,7 @@ export default function Reveal({
   return (
     <Tag
       ref={ref}
-      className={`transition-[opacity,transform] duration-700 ease-out ${visible ? 'opacity-100 translate-x-0 translate-y-0 rotate-0 scale-100' : `opacity-0 ${VARIANTS[variant]}`} ${className}`}
+      className={`js-reveal transition-[opacity,transform] duration-700 ease-out ${visible ? 'opacity-100 translate-x-0 translate-y-0 rotate-0 scale-100' : `opacity-0 ${VARIANTS[variant]}`} ${className}`}
       style={{ ...style, transitionDelay: visible ? `${delay}ms` : '0ms' }}
       {...props}
     >
