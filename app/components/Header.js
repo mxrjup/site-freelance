@@ -96,7 +96,7 @@ export default function Header() {
             {t.cta}
           </a>
           <LangSwitch lang={lang} label={t.langGroupLabel} idPrefix="desktop" />
-          <ThemeToggle label={t.themeToggleLabel} />
+          <ThemeToggle label={t.themeToggleLabel} idPrefix="desktop" />
         </div>
 
         <button
@@ -145,7 +145,7 @@ export default function Header() {
               {t.cta}
             </a>
             <LangSwitch lang={lang} label={t.langGroupLabel} idPrefix="mobile" />
-            <ThemeToggle label={t.themeToggleLabel} />
+            <ThemeToggle label={t.themeToggleLabel} idPrefix="mobile" />
           </li>
         </ul>
       )}

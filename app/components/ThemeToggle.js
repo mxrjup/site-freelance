@@ -2,7 +2,7 @@
 
 import { SunIcon, MoonIcon } from './icons';
 
-export default function ThemeToggle({ label }) {
+export default function ThemeToggle({ label, idPrefix }) {
   function toggle() {
     const next = !document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', next);
@@ -17,7 +17,7 @@ export default function ThemeToggle({ label }) {
   return (
     <button
       type="button"
-      id="theme-toggle"
+      id={`theme-toggle-${idPrefix}`}
       onClick={toggle}
       aria-label={label}
       className="relative inline-flex h-[27px] w-[27px] cursor-pointer items-center justify-center rounded-full border border-forest/15 text-forest/70 transition-colors hover:text-forest dark:border-cream/20 dark:text-cream/70 dark:hover:text-cream"
