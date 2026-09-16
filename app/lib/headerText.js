@@ -22,5 +22,5 @@ export const headerText = {
 
 export const LANG_OPTIONS = [
   { code: 'fr', href: '/', short: 'FR', name: 'Français' },
-  { code: 'en', href: '/en', short: 'EN', name: 'English' },
+  { code: 'en', href: '/en/', short: 'EN', name: 'English' },
 ];
