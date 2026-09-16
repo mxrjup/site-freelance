@@ -3,7 +3,11 @@ import { ClockIcon, PinIcon, ChatIcon } from './icons';
 
 const ICONS = [ClockIcon, PinIcon, ChatIcon];
 
-export default function Contact({ t }) {
+// PostTo endpoint for this form (EU-hosted): https://postto.dev/api/v1/send/<token>
+// Subject line and autoresponder text are configured once, in the PostTo dashboard for this endpoint.
+const POSTTO_ENDPOINT = 'https://postto.dev/api/v1/send/ep_IZAC028sIRx5Zm3p';
+
+export default function Contact({ t, redirectTo }) {
   const facts = t.facts.map((label, i) => ({ label, Icon: ICONS[i] }));
   const f = t.form;
 
@@ -47,8 +51,19 @@ export default function Contact({ t }) {
             as="form"
             variant="drop"
             delay={60}
+            action={POSTTO_ENDPOINT}
+            method="POST"
             className="grid grid-cols-2 gap-4 rounded-[30px_22px_30px_22px] bg-white/[0.78] p-6 sm:rounded-[56px_30px_56px_30px] sm:p-9 dark:bg-white/[0.06]"
           >
+            {redirectTo && <input type="hidden" name="_next" value={redirectTo} />}
+            <input
+              type="text"
+              name="_hp"
+              tabIndex={-1}
+              autoComplete="off"
+              className="hidden"
+              aria-hidden="true"
+            />
             <div className="col-span-2 sm:col-span-1">
               <label
                 htmlFor="contact-nom"
