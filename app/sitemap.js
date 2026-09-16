@@ -5,11 +5,11 @@ export const dynamic = 'force-static';
 export default function sitemap() {
   const baseUrl = SITE_URL;
   const lastModified = new Date();
-  const languages = { fr: baseUrl, en: `${baseUrl}/en/` };
+  const languages = { fr: `${baseUrl}/`, en: `${baseUrl}/en/` };
 
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 1.0,
