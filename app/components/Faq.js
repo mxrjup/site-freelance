@@ -54,6 +54,7 @@ export default function Faq({ t }) {
                 id={`faq-toggle-${i}`}
                 onClick={() => setOpen(i)}
                 aria-pressed={open === i}
+                aria-controls="faq-answer-panel"
                 className={`grid w-full cursor-pointer grid-cols-[minmax(0,1fr)_20px] items-center gap-3.5 rounded-full px-5 py-4 text-left text-forest transition-colors ${open === i ? 'bg-sage' : 'bg-white/70 hover:bg-sage-light dark:bg-white/10 dark:text-cream dark:hover:bg-white/15'}`}
               >
                 <span className="text-pretty text-[17px] font-semibold leading-snug">{item.q}</span>
@@ -76,6 +77,7 @@ export default function Faq({ t }) {
 
           <div
             ref={panelRef}
+            id="faq-answer-panel"
             role="status"
             className="animate-faq-unfurl relative rounded-[30px_22px_30px_22px] bg-white/70 p-7 sm:rounded-[60px_30px_60px_30px] sm:p-11 dark:bg-white/[0.06]"
           >

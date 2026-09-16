@@ -104,6 +104,7 @@ export default function Header({ lang }) {
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? t.closeMenu : t.openMenu}
           aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           <svg
             className="h-6 w-6"
@@ -122,7 +123,10 @@ export default function Header({ lang }) {
       </nav>
 
       {mobileOpen && (
-        <ul className="md:hidden flex flex-col gap-1 border-t border-forest/10 bg-cream-header px-5 py-4 dark:border-cream/10 dark:bg-night-header">
+        <ul
+          id="mobile-menu"
+          className="md:hidden flex flex-col gap-1 border-t border-forest/10 bg-cream-header px-5 py-4 dark:border-cream/10 dark:bg-night-header"
+        >
           {navLinks.map(({ key, label, href }) => (
             <li key={key}>
               <a
@@ -177,8 +181,9 @@ function LangSwitch({ lang, label, idPrefix }) {
       <button
         type="button"
         id={`lang-switch-${idPrefix}-toggle`}
-        aria-haspopup="listbox"
+        aria-haspopup="true"
         aria-expanded={open}
+        aria-controls={`lang-switch-${idPrefix}-menu`}
         aria-label={label}
         onClick={() => setOpen((v) => !v)}
         className="flex cursor-pointer items-center gap-1 rounded-full border border-forest/15 py-[7px] pl-3 pr-2.5 text-[13px] font-semibold text-forest dark:border-cream/20 dark:text-cream"
@@ -190,16 +195,17 @@ function LangSwitch({ lang, label, idPrefix }) {
       </button>
       {open && (
         <ul
-          role="listbox"
+          id={`lang-switch-${idPrefix}-menu`}
           aria-label={label}
           className="absolute right-0 top-full z-20 mt-2 min-w-[132px] rounded-xl border border-forest/15 bg-cream-header py-1 shadow-[0_14px_28px_-18px_rgba(61,90,36,0.5)] dark:border-cream/20 dark:bg-night-header"
         >
           {LANG_OPTIONS.map((option) => (
-            <li key={option.code} role="option" aria-selected={option.code === lang}>
+            <li key={option.code}>
               <Link
                 href={option.href}
                 id={`lang-switch-${idPrefix}-${option.code}`}
                 onClick={() => setOpen(false)}
+                aria-current={option.code === lang ? 'true' : undefined}
                 className={`block px-3.5 py-2 text-[14px] font-medium transition-colors ${
                   option.code === lang
                     ? 'text-forest dark:text-cream'
