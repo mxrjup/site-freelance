@@ -1,4 +1,5 @@
 import { Figtree, Caprasimo } from 'next/font/google';
+import Analytics from './Analytics';
 import Header from './Header';
 import { THEME_INIT_SCRIPT } from '../lib/themeInit';
 import '../globals.css';
@@ -30,6 +31,7 @@ export default function RootShell({ lang, children }) {
         </noscript>
         <Header lang={lang} />
         {children}
+        <Analytics />
       </body>
     </html>
   );

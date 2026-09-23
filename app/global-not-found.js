@@ -1,4 +1,5 @@
 import { Figtree, Caprasimo } from 'next/font/google';
+import Analytics from './components/Analytics';
 import Header from './components/Header';
 import NotFoundPage from './components/NotFoundPage';
 import { THEME_INIT_SCRIPT } from './lib/themeInit';
@@ -57,6 +58,7 @@ export default function GlobalNotFound() {
         <Header lang="fr" />
         <NotFoundPage lang="fr" />
         <script dangerouslySetInnerHTML={{ __html: NOT_FOUND_LANG_SCRIPT }} />
+        <Analytics />
       </body>
     </html>
   );
