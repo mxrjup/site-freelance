@@ -150,7 +150,16 @@ export default function Contact({ t, redirectTo }) {
               >
                 {f.submit}
               </button>
-              <span className="text-sm text-forest/85 dark:text-cream/60">{f.privacyNote}</span>
+              <span className="text-sm text-forest/85 dark:text-cream/60">
+                {f.privacyNote}{' '}
+                <a
+                  href="/politique-de-confidentialite/"
+                  id="contact-privacy-link"
+                  className="underline underline-offset-2 hover:text-leaf"
+                >
+                  {f.privacyLinkLabel}
+                </a>
+              </span>
             </div>
           </Reveal>
         </div>

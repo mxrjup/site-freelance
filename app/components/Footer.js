@@ -9,7 +9,10 @@ const CONTACT_HREFS = ['#contact', '#questions'];
 // between deploys instead of freezing until the next one.
 const FOOTER_YEAR_SCRIPT = `(function(){var el=document.getElementById('footer-year');if(el)el.textContent=new Date().getFullYear();})();`;
 
-export default function Footer({ t }) {
+// `hrefPrefix` lets sub-pages (mentions légales…) point the in-page anchors
+// back at the home page instead of scrolling nowhere. Empty on the home page,
+// where the anchors are already on the current document.
+export default function Footer({ t, hrefPrefix = '' }) {
   const year = new Date().getFullYear();
 
   return (
@@ -34,7 +37,7 @@ export default function Footer({ t }) {
                 {t.siteLinks.map((label, i) => (
                   <li key={label}>
                     <a
-                      href={SITE_HREFS[i] ?? '#hero'}
+                      href={`${hrefPrefix}${SITE_HREFS[i] ?? '#hero'}`}
                       className="text-[15px] text-white/[0.82] hover:text-sage"
                     >
                       {label}
@@ -51,7 +54,7 @@ export default function Footer({ t }) {
                 {t.contactLinks.map((label, i) => (
                   <li key={label}>
                     <a
-                      href={CONTACT_HREFS[i] ?? '#hero'}
+                      href={`${hrefPrefix}${CONTACT_HREFS[i] ?? '#hero'}`}
                       className="text-[15px] text-white/[0.82] hover:text-sage"
                     >
                       {label}
@@ -68,6 +71,22 @@ export default function Footer({ t }) {
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3.5 border-t border-sage/25 pt-4">
           <p className="text-[13.5px] text-white/60">
             {t.brand} — <span id="footer-year">{year}</span>
+            <span aria-hidden="true"> · </span>
+            <a
+              href="/mentions-legales/"
+              id="footer-legal-link"
+              className="text-white/[0.82] hover:text-sage"
+            >
+              {t.legalLabel}
+            </a>
+            <span aria-hidden="true"> · </span>
+            <a
+              href="/politique-de-confidentialite/"
+              id="footer-privacy-link"
+              className="text-white/[0.82] hover:text-sage"
+            >
+              {t.privacyLabel}
+            </a>
           </p>
           <p className="text-[13.5px] text-white/60">{t.bottomRight}</p>
         </div>

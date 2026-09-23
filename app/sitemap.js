@@ -22,5 +22,19 @@ export default function sitemap() {
       priority: 0.9,
       alternates: { languages },
     },
+    // Pages légales : françaises uniquement pour l'instant, donc pas
+    // d'alternates hreflang tant que la version anglaise n'existe pas.
+    {
+      url: `${baseUrl}/mentions-legales/`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/politique-de-confidentialite/`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
   ];
 }

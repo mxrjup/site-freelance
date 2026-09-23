@@ -173,6 +173,7 @@ export const dict = {
           'Ce que vous faites, ce que le site devrait apporter, et si vous avez une date en tête.',
         submit: 'Envoyer ma demande',
         privacyNote: "Vos informations ne servent qu'à vous répondre.",
+        privacyLinkLabel: 'Politique de confidentialité',
       },
     },
     footer: {
@@ -184,6 +185,8 @@ export const dict = {
       location: 'Montpellier, France',
       brand: 'Marius Dev',
       bottomRight: 'Hébergé sur des serveurs alimentés en énergie renouvelable.',
+      legalLabel: 'Mentions légales',
+      privacyLabel: 'Politique de confidentialité',
     },
     notFound: {
       pageTitle: 'Page introuvable',
@@ -371,6 +374,7 @@ export const dict = {
           'What you do, what the site should achieve, and any timeline you have in mind.',
         submit: 'Send my request',
         privacyNote: 'Your information is only ever used to reply to you.',
+        privacyLinkLabel: 'Privacy policy',
       },
     },
     footer: {
@@ -382,6 +386,8 @@ export const dict = {
       location: 'Montpellier, France',
       brand: 'Marius Dev',
       bottomRight: 'Hosted on servers powered by renewable energy.',
+      legalLabel: 'Legal notice',
+      privacyLabel: 'Privacy policy',
     },
     notFound: {
       pageTitle: 'Page not found',

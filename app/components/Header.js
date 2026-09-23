@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import { ChevronDownIcon } from './icons';
 import { headerText, LANG_OPTIONS } from '../lib/headerText';
@@ -19,10 +20,28 @@ const NAV_ITEMS = [
   { key: 'faq', href: '#questions' },
 ];
 
+// Pages légales : françaises uniquement, il n'en existe pas de version
+// anglaise. Le sélecteur de langue y est donc masqué, puisqu'il n'aurait
+// rien à proposer d'autre que de quitter la page.
+const LEGAL_PATHS = ['/mentions-legales/', '/politique-de-confidentialite/'];
+
+function isLegalPath(pathname) {
+  if (!pathname) return false;
+  return LEGAL_PATHS.includes(pathname.endsWith('/') ? pathname : `${pathname}/`);
+}
+
 export default function Header({ lang }) {
   const t = headerText[lang];
   const headerRef = useRef(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  // The nav is a set of in-page anchors. On a sub-page (mentions légales…)
+  // they would scroll nowhere, so prefix them with the home path there —
+  // and leave them bare on the home page so they stay same-document jumps
+  // instead of triggering a full reload.
+  const pathname = usePathname();
+  const home = lang === 'fr' ? '/' : `/${lang}/`;
+  const anchor = pathname === home ? '' : home;
+  const showLangSwitch = !isLegalPath(pathname);
   const navLinks = NAV_ITEMS.map((item, i) => ({ ...item, label: t.nav[i] }));
 
   useEffect(() => {
@@ -60,7 +79,7 @@ export default function Header({ lang }) {
       <nav className="mx-auto flex w-full max-w-[1800px] items-center justify-between px-5 py-[18px] sm:px-10 lg:px-14 xl:px-20">
         <div className="flex items-center gap-10">
           <a
-            href="#hero"
+            href={`${anchor}#hero`}
             id="header-logo"
             className="flex items-center gap-2.5 font-display text-xl text-forest dark:text-cream"
           >
@@ -74,7 +93,7 @@ export default function Header({ lang }) {
             {navLinks.map(({ key, label, href }) => (
               <li key={key}>
                 <a
-                  href={href}
+                  href={`${anchor}${href}`}
                   id={`nav-${key}`}
                   className="text-[15px] font-medium text-forest/85 transition-colors hover:text-leaf dark:text-cream/70 dark:hover:text-leaf"
                 >
@@ -87,13 +106,13 @@ export default function Header({ lang }) {
 
         <div className="hidden items-center gap-5 md:flex">
           <a
-            href="#contact"
+            href={`${anchor}#contact`}
             id="header-cta"
             className="rounded-full bg-leaf px-[22px] py-[11px] text-[15px] font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-forest"
           >
             {t.cta}
           </a>
-          <LangSwitch lang={lang} label={t.langGroupLabel} idPrefix="desktop" />
+          {showLangSwitch && <LangSwitch lang={lang} label={t.langGroupLabel} idPrefix="desktop" />}
           <ThemeToggle label={t.themeToggleLabel} idPrefix="desktop" />
         </div>
 
@@ -130,7 +149,7 @@ export default function Header({ lang }) {
           {navLinks.map(({ key, label, href }) => (
             <li key={key}>
               <a
-                href={href}
+                href={`${anchor}${href}`}
                 onClick={() => setMobileOpen(false)}
                 className="block rounded-lg px-2 py-2.5 text-[15px] font-medium text-forest/90 hover:text-leaf dark:text-cream/80 dark:hover:text-leaf"
               >
@@ -140,13 +159,15 @@ export default function Header({ lang }) {
           ))}
           <li className="flex flex-wrap items-center gap-3.5 pt-2">
             <a
-              href="#contact"
+              href={`${anchor}#contact`}
               onClick={() => setMobileOpen(false)}
               className="inline-block rounded-full bg-leaf px-5 py-2.5 text-[15px] font-semibold text-white"
             >
               {t.cta}
             </a>
-            <LangSwitch lang={lang} label={t.langGroupLabel} idPrefix="mobile" />
+            {showLangSwitch && (
+              <LangSwitch lang={lang} label={t.langGroupLabel} idPrefix="mobile" />
+            )}
             <ThemeToggle label={t.themeToggleLabel} idPrefix="mobile" />
           </li>
         </ul>
